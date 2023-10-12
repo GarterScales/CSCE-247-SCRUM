@@ -31,7 +31,23 @@ public class Project {
         return new ArrayList<Task>();
     }
 
-    public User addUser(UserRole role, String username) {
-        return new User();
+    public void addUser(UserRole role, String username) {
+        
+    }
+
+    public void addComment(Comment comment) {
+
+    }
+
+    public ArrayList<Comment> displayComments() {
+        return this.comments;
+    }
+
+    public void setName(String name) {
+        this.projectName = name;
+    }
+
+    public String getName() {
+        return this.projectName;
     }
 }
