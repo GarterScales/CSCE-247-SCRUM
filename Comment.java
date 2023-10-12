@@ -14,6 +14,22 @@ public class Comment {
     }
 
     public void removeComment(Comment comment) {
+
+    }
+
+    public User getCommenter() {
+        return this.commenter;
+    }
+
+    public Date getDate() {
+        return this.date;
+    }
+
+    public void addReply(Comment reply) {
         
+    }
+
+    public ArrayList<Comment> displayReplies() {
+        return this.replies;
     }
 }
