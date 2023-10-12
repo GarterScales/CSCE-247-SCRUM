@@ -16,8 +16,8 @@ public class ProjectList {
         
     }
 
-    public ArrayList<Projects> viewProjects(User user) {
-        return new ArrayList<Project>;
+    public ArrayList<Project> viewProjects(User user) {
+        return new ArrayList<Project>();
     }
 
     public Project addProject(ArrayList<Project> projects, String projectName) {
@@ -28,7 +28,7 @@ public class ProjectList {
         return new Project();
     }
 
-    public Project selectProject(ArratList<Project> projects, String projectName) {
+    public Project selectProject(ArrayList<Project> projects, String projectName) {
         return new Project();
     }
 }
