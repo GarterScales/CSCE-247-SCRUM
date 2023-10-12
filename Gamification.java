@@ -5,8 +5,12 @@ public class Gamification {
     private double bar;
     private User user;
 
-    public int addPoints() {
+    public int editPoints() {
         return 0;
+    }
+
+    public int getPoints() {
+        return points;
     }
 
     public String displayRank(ArrayList<User> users) {
