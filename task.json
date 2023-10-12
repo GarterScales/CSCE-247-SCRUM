@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Task 1",
+        "taskContent": "Complete new feature",
+        "priority": 1,
+        "type": "NewFeature",
+        "logID": 1,
+        "hoursToComplete": 2,
+        "userID": 1,
+        "commentIDs": [],
+        "pointValue": 2
+    },
+    {
+        "id": 2,
+        "name": "Task 2",
+        "taskContent": "Fix bug",
+        "priority": 3,
+        "type": "BugTask",
+        "logID": 2,
+        "hoursToComplete": 3,
+        "userID": 2,
+        "commentIDs": [],
+        "pointValue": 1
+    }
+]

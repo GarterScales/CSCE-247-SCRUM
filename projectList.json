@@ -1,0 +1,19 @@
+[
+    {
+        "id": 1,
+        "columnListIds": [
+            1,
+            2,
+            3
+        ],
+        "commentListIds": [
+            1,
+            2,
+            3
+        ],
+        "roleMap": [
+            { "role": "Master", "userId": 1},
+            { "role": "Writer", "userId": 2}
+        ]
+    }
+]
