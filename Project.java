@@ -11,7 +11,7 @@ public class Project {
         this.projectName = projectName;
     }
 
-    public Task addTask(Task task) {
+    public Task addTask(Task task, String columnName) {
         return new Task();
     }
 
