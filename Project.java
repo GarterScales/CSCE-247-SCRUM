@@ -15,8 +15,8 @@ public class Project {
         return new Task();
     }
 
-    public Task removeTask(Task task) {
-        return null;
+    public void removeTask(Task task) {
+        
     }
 
     public Task editTask(Task task) {
@@ -27,8 +27,8 @@ public class Project {
         return new ArrayList<Task>();
     }
 
-    public void displayTasks() {
-
+    public ArrayList<Task> displayTasks() {
+        return new ArrayList<Task>();
     }
 
     public User addUser(UserRole role, String username) {
