@@ -6,18 +6,21 @@ public class SystemFACADE
     
     public User login(String username, String password)
     {
-        return new User();
+        User temp = new User("", "", "", "", "");
+        return temp;
     }
     public User logout(String username, String password)
     {
-        return new User();
+        User temp = new User("", "", "", "", "");
+        return temp;
     }
     public User signUp(String firstName, String lastName, String email, String username, String password)
     {
-        return new User();
+        User temp = new User("", "", "", "", "");
+        return temp;
     }
     public ProjectList getProjects(User user)
     {
-        return new ProjectList();
+        //needs more thought
     }
 }
