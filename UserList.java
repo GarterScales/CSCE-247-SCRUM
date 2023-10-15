@@ -1,34 +1,32 @@
-public class UserList 
-{
+public class UserList {
     private UserList userList;
     private User user;
 
-    private UserList()
-    {
+    private UserList() {
 
     }
-    public static UserList getInstance()
-    {
 
+    public static UserList getInstance() {
+        return this;
     }
-    public boolean checkUsername(String username)
-    {
+
+    public boolean checkUsername(String username) {
         return true;
     }
-    public boolean checkUsernameAvailability(String username)
-    {
+
+    public boolean checkUsernameAvailability(String username) {
         return true;
     }
-    public boolean checkPassword(String password)
-    {
+
+    public boolean checkPassword(String password) {
         return true;
     }
-    public boolean checkUser(User user)
-    {
+
+    public boolean checkUser(User user) {
         return true;
     }
-    public void addUser(String firstName, String lastName, String email, String username, String password)
-    {
-        
+
+    public void addUser(String firstName, String lastName, String email, String username, String password) {
+
     }
 }
