@@ -12,10 +12,43 @@ public abstract class Task {
     public int pointValue;
 
     public Task() {
-      comments = Database.getComments();
+      
     }
 
     public void SetIntSprint(boolean inSprint) {
-        
+
     }
+
+    public String getName() {
+      return name;
+    }
+
+    public void setName(String name) {
+      this.name = name;
+    }
+
+    public String getTaskContent() {
+      return taskContent;
+    }
+
+    public void setTaskContent(String taskContent) {
+      this.taskContent = taskContent;
+    }
+
+    public int getPriority() {
+      return priority;
+    }
+
+    public void setPriority(int priority) {
+      this.priority = priority;
+    }
+
+    public int getPointValue() {
+      return pointValue;
+    }
+
+    public void setPointValue(int pointValue) {
+      this.pointValue = pointValue;
+    }
+
 }
