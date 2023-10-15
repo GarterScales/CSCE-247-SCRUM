@@ -1,11 +1,13 @@
+import java.util.ArrayList;
+
 public class DataLoader 
 {
     public ArrayList<Project> getProjects()
     {
-        return new Project();
+        return new ArrayList<Project>();
     }
     public ArrayList<User> getUsers()
     {
-        return new User();
+        return new ArrayList<User>();
     }
 }

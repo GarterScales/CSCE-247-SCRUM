@@ -8,7 +8,7 @@ public class User
 
     public User(String firstName, String lastName, String email, String username, String password)
     {
-        return User;
+        
     }
     public boolean checkPasswordRequirements(String password)
     {

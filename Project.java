@@ -11,16 +11,16 @@ public class Project {
         this.projectName = projectName;
     }
 
-    public Task addTask(Task task, String columnName) {
-        return new Task();
+    public void addTask(Task task, String columnName) {
+
     }
 
     public void removeTask(Task task) {
-        
+
     }
 
-    public Task editTask(Task task) {
-        return new Task();
+    public void editTask(Task task) {
+
     }
 
     public ArrayList<Task> getTasks() {
@@ -32,7 +32,7 @@ public class Project {
     }
 
     public void addUser(UserRole role, String username) {
-        
+
     }
 
     public void addComment(Comment comment) {
