@@ -1,5 +1,5 @@
 public class UserList {
-    private UserList userList;
+    private static UserList userList;
     private User user;
 
     private UserList() {
@@ -7,7 +7,7 @@ public class UserList {
     }
 
     public static UserList getInstance() {
-        return this;
+        return userList;
     }
 
     public boolean checkUsername(String username) {
