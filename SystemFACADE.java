@@ -21,6 +21,6 @@ public class SystemFACADE
     }
     public ProjectList getProjects(User user)
     {
-        //needs more thought
+        return ProjectList.getInstance();
     }
 }
