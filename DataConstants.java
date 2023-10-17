@@ -1,4 +1,3 @@
-public class DataConstants
-{
-    
+public class DataConstants {
+
 }

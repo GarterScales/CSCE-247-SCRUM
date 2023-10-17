@@ -1,11 +1,9 @@
-public class DataWriter 
-{
-    public boolean saveProjects()
-    {
+public class DataWriter {
+    public boolean saveProjects() {
         return true;
     }
-    public boolean saveUsers()
-    {
+
+    public boolean saveUsers() {
         return true;
     }
 }
