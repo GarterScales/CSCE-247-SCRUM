@@ -17,19 +17,18 @@ public class DataLoader extends DataConstants {
 
 		try {
 			FileReader reader = new FileReader(USER_FILE_NAME);
-			JSONParser parser = new JSONParser();
 			JSONArray peopleJSON = (JSONArray) new JSONParser().parse(reader);
 
 			for (int i = 0; i < peopleJSON.size(); i++) {
 				JSONObject personJSON = (JSONObject) peopleJSON.get(i);
 				UUID id = UUID.fromString((String) personJSON.get(USER_ID));
-				String userName = (String) personJSON.get(USER_USER_NAME);
 				String firstName = (String) personJSON.get(USER_FIRST_NAME);
 				String lastName = (String) personJSON.get(USER_LAST_NAME);
-				int age = ((Long) personJSON.get(USER_AGE)).intValue();
-				String phoneNumber = (String) personJSON.get(USER_PHONE_NUMBER);
+				String email = (String) personJSON.get(USER_EMAIL);
+				String userName = (String) personJSON.get(USER_USER_NAME);
+				String password = ((String) personJSON.get(USER_PASSWORD));
 
-				users.add(new User(id, userName, firstName, lastName, age, phoneNumber));
+				users.add(new User(id, firstName, lastName, email, userName, password));
 			}
 
 			return users;

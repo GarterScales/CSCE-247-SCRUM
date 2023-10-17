@@ -1,9 +1,45 @@
-public class DataWriter {
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+public class DataWriter extends DataConstants {
     public boolean saveProjects() {
         return true;
     }
 
-    public boolean saveUsers() {
-        return true;
+    public static void saveUsers() {
+        UserList users = UserList.getInstance();
+        ArrayList<User> userList = users.getUsers();
+        JSONArray jsonUsers = new JSONArray();
+
+        // creating all the json objects
+        for (int i = 0; i < userList.size(); i++) {
+            jsonUsers.add(getUserJSON(userList.get(i)));
+        }
+
+        // Write JSON file
+        try (FileWriter file = new FileWriter("JSON/userList.json")) {
+
+            file.write(jsonUsers.toJSONString());
+            file.flush();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static JSONObject getUserJSON(User user) {
+        JSONObject userDetails = new JSONObject();
+        userDetails.put(USER_ID, user.getId().toString());
+        userDetails.put(USER_USER_NAME, user.getUserName());
+        userDetails.put(USER_FIRST_NAME, user.getFirstName());
+        userDetails.put(USER_LAST_NAME, user.getLastName());
+        userDetails.put(USER_PASSWORD, user.getPassword());
+        userDetails.put(USER_EMAIL, user.getEmail());
+
+        return userDetails;
     }
 }
