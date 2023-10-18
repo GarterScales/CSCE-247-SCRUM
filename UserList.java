@@ -19,20 +19,40 @@ public class UserList {
         return userList;
     }
 
-    public boolean checkUsername(String username) {
-        return true;
+    public int checkUsername(String username) {
+        for (int i = 0; i < userList.size(); i++) {
+            if (username.equals(userList.get(i).getUserName())) {
+                return i;
+            }
+        }
+
+        return -1;
     }
 
     public boolean checkUsernameAvailability(String username) {
         return true;
     }
 
-    public boolean checkPassword(String password) {
-        return true;
+    public int checkPassword(String password) {
+        for (int i = 0; i < userList.size(); i++) {
+            if (password.equals(userList.get(i).getPassword())) {
+                return i;
+            }
+        }
+
+        return -1;
     }
 
     public boolean checkUser(User user) {
-        return true;
+        if (checkUsername(user.getUserName()) == -1 || checkPassword(user.getPassword()) == -1) {
+            return false;
+        }
+
+        if (checkUsername(user.getUserName()) == checkPassword(user.getPassword())) {
+            return true;
+        }
+
+        return false;
     }
 
     public void addUser(String firstName, String lastName, String email, String username, String password) {
