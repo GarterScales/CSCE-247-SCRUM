@@ -9,25 +9,25 @@ public class User {
     private String password;
 
     public User(UUID id, String firstName, String lastName, String email, String username, String password) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.username = username;
-        this.password = password;
+        setId(id);
+        setFirstName(firstName);
+        setLastName(lastName);
+        setEmail(email);
+        setUserName(username);
+        setPassword(password);
     }
 
     public User(String firstName, String lastName, String email, String username, String password) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.username = username;
-        this.password = password;
+        setFirstName(firstName);
+        setLastName(lastName);
+        setEmail(email);
+        setUserName(username);
+        setPassword(password);
     }
 
     public User(String username, String password) {
-        this.username = username;
-        this.password = password;
+        setUserName(username);
+        setPassword(password);
     }
 
     public UUID getId() {
