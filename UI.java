@@ -62,6 +62,26 @@ public class UI {
         }
     }
 
+    // only allows user to sign up
+    public void run3() {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Enter your first name");
+        String firstName = keyboard.nextLine();
+        System.out.println("Enter your last name");
+        String lastName = keyboard.nextLine();
+        System.out.println("Enter your email");
+        String email = keyboard.nextLine();
+        System.out.println("Enter your username");
+        String newUsername = keyboard.nextLine();
+        System.out.println("Enter your password");
+        String newPassword = keyboard.nextLine();
+        if (systemFacade.signUp(firstName, lastName, email, newUsername, newPassword)) {
+            System.out.println("Sucessfully registered");
+        } else {
+            System.out.println("Registration failed");
+        }
+    }
+
     public void scenario() {
 
     }
