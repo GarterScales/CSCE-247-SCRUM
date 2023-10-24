@@ -28,18 +28,18 @@
                 "commenterUUID": "efb43682-703d-4dae-9853-f397c8625d96",
                 "content": "Fix issue on line 25.",
                 "date": "2023-10-06",
-                "replyIDs": [
+                "replies": [
                     {
                         "commenterUUID": "662bf3e6-a5cc-499f-a642-a31e89289168",
                         "content": "Issue resolved",
                         "date": "2023-10-07",
-                        "replyIDs": []
+                        "replies": []
                     },
                     {
                         "commenterUUID": "efb43682-703d-4dae-9853-f397c8625d96",
                         "content": "Thank you.",
                         "date": "2023-10-08",
-                        "replyIDs": []
+                        "replies": []
                     }
                 ]
             }
