@@ -9,14 +9,15 @@ import org.json.simple.parser.JSONParser;
 public class DataLoader extends DataConstants {
 
 	public static void main(String[] args) {
-
+		UI ui = new UI();
+		ui.run();
 	}
 
 	public ArrayList<Project> getProjects() {
 		return new ArrayList<Project>();
 	}
 
-	public ArrayList<User> getUsers() {
+	public static ArrayList<User> getUsers() {
 		ArrayList<User> users = new ArrayList<User>();
 
 		try {

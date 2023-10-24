@@ -16,12 +16,13 @@ public class UI {
 
         switch (choice) {
             case 1:
+                keyboard.nextLine();
                 System.out.println("Enter your username");
                 String username = keyboard.nextLine();
                 System.out.println("Enter your password");
                 String password = keyboard.nextLine();
                 if (systemFacade.login(username, password)) {
-                    System.out.println("Login successfull");
+                    System.out.println("Login successful");
                 } else {
                     System.out.println("Login failed");
                 }
