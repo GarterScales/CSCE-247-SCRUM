@@ -2,7 +2,6 @@ public class SystemFACADE {
     public User currentUser;
     private User user;
     private Project project;
-    private Task task;
 
     public boolean login(String username, String password) {
         UserList userList = UserList.getInstance();
