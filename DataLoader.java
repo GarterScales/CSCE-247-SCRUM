@@ -8,6 +8,10 @@ import org.json.simple.parser.JSONParser;
 
 public class DataLoader extends DataConstants {
 
+	public static void main(String[] args) {
+
+	}
+
 	public ArrayList<Project> getProjects() {
 		return new ArrayList<Project>();
 	}

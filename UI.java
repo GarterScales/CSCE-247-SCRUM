@@ -6,8 +6,4 @@ public class UI {
     public void scenario() {
 
     }
-
-    public static void main(String[] args) {
-
-    }
 }
