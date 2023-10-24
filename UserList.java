@@ -44,7 +44,7 @@ public class UserList {
 
     public User checkUser(String username, String password) {
         for (User user : userList) {
-            if (password.equals(user.getPassword()) && username.equals(user.getUserName())) {
+            if (checkPassword(password) == checkUsername(username)) {
                 return user;
             }
         }
