@@ -38,10 +38,17 @@ public class UI {
                 String newUsername = keyboard.nextLine();
                 System.out.println("Enter your password");
                 String newPassword = keyboard.nextLine();
-                if (systemFacade.signUp(firstName, lastName, email, newUsername, newPassword)) {
-                    System.out.println("Sucessfully registered");
-                } else {
-                    System.out.println("Registration failed");
+                switch (systemFacade.signUp(firstName, lastName, email, newUsername, newPassword)) {
+                    case 0:
+                        System.out.println("Sucessfully registered");
+                        break;
+                    case 1:
+                        System.out.println(
+                                "Password insufficient, please use at least one upper case, one lower case, and one digit.");
+                        break;
+                    case 2:
+                        System.out.println("Username already exists, please choose a new Username.");
+                        break;
                 }
                 break;
         }

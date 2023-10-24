@@ -14,20 +14,22 @@ public class SystemFACADE {
         return temp;
     }
 
-    public boolean signUp(String firstName, String lastName, String email, String username, String password) {
+    public int signUp(String firstName, String lastName, String email, String username, String password) {
         UserList userList = UserList.getInstance();
 
         // check if username is available
         if (userList.checkUsernameAvailability(username)) {
-            // add user to user list
-            userList.addUser(firstName, lastName, email, username, password);
+            if (userList.checkPasswordRequirements(password)) {
+                // add user to user list
+                userList.addUser(firstName, lastName, email, username, password);
 
-            // save updated user list to data writer
-            DataWriter.saveUsers();
-
-            return true;
+                // save updated user list to data writer
+                DataWriter.saveUsers();
+                return 0;
+            }
+            return 1;
         }
-        return false;
+        return 2;
 
     }
 

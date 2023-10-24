@@ -21,7 +21,23 @@ public class UserList {
     }
 
     public boolean checkPasswordRequirements(String password) {
-        return true;
+        char ch;
+        boolean hasNumber = false;
+        boolean hasCapital = false;
+        boolean hasLowerCase = false;
+        for (int i = 0; i < password.length(); i++) {
+            ch = password.charAt(i);
+            if (Character.isDigit(ch)) {
+                hasNumber = true;
+            } else if (Character.isUpperCase(ch)) {
+                hasCapital = true;
+            } else if (Character.isLowerCase(ch)) {
+                hasLowerCase = true;
+            }
+            if (hasNumber && hasCapital && hasLowerCase)
+                return true;
+        }
+        return false;
     }
 
     public boolean checkUsernameAvailability(String username) {
