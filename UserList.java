@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class UserList {
     private static UserList instance;
@@ -19,40 +20,35 @@ public class UserList {
         return userList;
     }
 
-    public int checkUsername(String username) {
-        for (int i = 0; i < userList.size(); i++) {
-            if (username.equals(userList.get(i).getUserName())) {
-                return i;
+    public UUID checkUsername(String username) {
+        for (User user : userList) {
+            if (username.equals(user.getUserName())) {
+                return user.getId();
             }
         }
-
-        return -1;
+        return null;
     }
 
     public boolean checkUsernameAvailability(String username) {
         return true;
     }
 
-    public int checkPassword(String password) {
-        for (int i = 0; i < userList.size(); i++) {
-            if (password.equals(userList.get(i).getPassword())) {
-                return i;
+    public UUID checkPassword(String password) {
+        for (User user : userList) {
+            if (password.equals(user.getPassword())) {
+                return user.getId();
             }
         }
-
-        return -1;
+        return null;
     }
 
-    public boolean checkUser(User user) {
-        if (checkUsername(user.getUserName()) == -1 || checkPassword(user.getPassword()) == -1) {
-            return false;
+    public User checkUser(String username, String password) {
+        for (User user : userList) {
+            if (password.equals(user.getPassword()) && username.equals(user.getUserName())) {
+                return user;
+            }
         }
-
-        if (checkUsername(user.getUserName()) == checkPassword(user.getPassword())) {
-            return true;
-        }
-
-        return false;
+        return null;
     }
 
     public void addUser(String firstName, String lastName, String email, String username, String password) {

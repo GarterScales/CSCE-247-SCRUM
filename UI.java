@@ -20,8 +20,7 @@ public class UI {
                 String username = keyboard.nextLine();
                 System.out.println("Enter your password");
                 String password = keyboard.nextLine();
-                User loggedIn = systemFacade.login(username, password);
-                if (loggedIn != null) {
+                if (systemFacade.login(username, password)) {
                     System.out.println("Login successfull");
                 } else {
                     System.out.println("Login failed");
