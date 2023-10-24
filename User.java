@@ -23,11 +23,16 @@ public class User {
         setEmail(email);
         setUserName(username);
         setPassword(password);
+        genUUID();
     }
 
     public User(String username, String password) {
         setUserName(username);
         setPassword(password);
+    }
+
+    private void genUUID() {
+        this.id = UUID.randomUUID();
     }
 
     public UUID getId() {

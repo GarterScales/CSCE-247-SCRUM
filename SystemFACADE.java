@@ -15,12 +15,12 @@ public class SystemFACADE {
         return temp;
     }
 
-    public User signUp(String firstName, String lastName, String email, String username, String password) {
+    public boolean signUp(String firstName, String lastName, String email, String username, String password) {
         UserList userList = UserList.getInstance();
 
         // check if username is available
         if (!userList.checkUsernameAvailability(username)) {
-            return null;
+            return false;
         }
 
         // add user to user list
@@ -29,9 +29,7 @@ public class SystemFACADE {
         // save updated user list to data writer
         DataWriter.saveUsers();
 
-        // return newly created user
-        User newUser = new User(firstName, lastName, email, username, password);
-        return newUser;
+        return true;
     }
 
     public ProjectList getProjects(User user) {

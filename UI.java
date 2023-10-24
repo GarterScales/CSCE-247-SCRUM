@@ -13,10 +13,9 @@ public class UI {
         System.out.println("1. Login");
         System.out.println("2. Sign up");
         int choice = keyboard.nextInt();
-
+        keyboard.nextLine();
         switch (choice) {
             case 1:
-                keyboard.nextLine();
                 System.out.println("Enter your username");
                 String username = keyboard.nextLine();
                 System.out.println("Enter your password");
@@ -39,8 +38,7 @@ public class UI {
                 String newUsername = keyboard.nextLine();
                 System.out.println("Enter your password");
                 String newPassword = keyboard.nextLine();
-                User newUser = systemFacade.signUp(firstName, lastName, email, newUsername, newPassword);
-                if (newUser != null) {
+                if (systemFacade.signUp(firstName, lastName, email, newUsername, newPassword)) {
                     System.out.println("Sucessfully registered");
                 } else {
                     System.out.println("Registration failed");
