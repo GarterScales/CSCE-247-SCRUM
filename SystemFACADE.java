@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 public class SystemFACADE {
+    public User currentUser;
     private User user;
     private Project project;
     private Task task;
@@ -8,9 +9,12 @@ public class SystemFACADE {
     public User login(String username, String password) {
         UserList userList = UserList.getInstance();
         ArrayList<User> users = userList.getUsers();
-        for (User user : users) {
-            if (user.getUserName().equals(username) && user.getPassword().equals(password)) {
-                return user;
+        if (userList.checkUsername(username)) {
+            for (User user : users) {
+                if (user.getUserName().equals(username) && user.getPassword().equals(password)) {
+                    currentUser = user;
+                    return user;
+                }
             }
         }
         return null;
