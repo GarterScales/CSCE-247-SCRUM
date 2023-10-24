@@ -30,6 +30,20 @@ public class UserList {
     }
 
     public boolean checkUsernameAvailability(String username) {
+        for (User user : userList) {
+            if (username.equals(user.getUserName())) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean checkIDAvailability(UUID id) {
+        for (User user : userList) {
+            if (id.equals(user.getId())) {
+                return false;
+            }
+        }
         return true;
     }
 

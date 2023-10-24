@@ -32,7 +32,15 @@ public class User {
     }
 
     private void genUUID() {
-        this.id = UUID.randomUUID();
+        UUID tempID = UUID.randomUUID();
+        boolean x = true;
+        while (x) {
+            if (UserList.getInstance().checkIDAvailability(tempID)) {
+                this.id = tempID;
+            } else {
+                tempID = UUID.randomUUID();
+            }
+        }
     }
 
     public UUID getId() {

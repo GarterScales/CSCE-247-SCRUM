@@ -19,17 +19,17 @@ public class SystemFACADE {
         UserList userList = UserList.getInstance();
 
         // check if username is available
-        if (!userList.checkUsernameAvailability(username)) {
-            return false;
+        if (userList.checkUsernameAvailability(username)) {
+            // add user to user list
+            userList.addUser(firstName, lastName, email, username, password);
+
+            // save updated user list to data writer
+            DataWriter.saveUsers();
+
+            return true;
         }
+        return false;
 
-        // add user to user list
-        userList.addUser(firstName, lastName, email, username, password);
-
-        // save updated user list to data writer
-        DataWriter.saveUsers();
-
-        return true;
     }
 
     public ProjectList getProjects(User user) {
