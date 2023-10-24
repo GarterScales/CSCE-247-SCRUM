@@ -20,6 +20,10 @@ public class UserList {
         return userList;
     }
 
+    public boolean checkPasswordRequirements(String password) {
+        return true;
+    }
+
     public boolean checkUsernameAvailability(String username) {
         for (User user : userList) {
             if (username.equals(user.getUserName())) {
