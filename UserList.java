@@ -73,9 +73,12 @@ public class UserList {
     }
 
     public User getUserbyId(UUID id) {
-        User user = null;
-
-        return user;
+        for (User user : userList) {
+            if (id == user.getId()) {
+                return user;
+            }
+        }
+        return null;
     }
 
     public void addUser(String firstName, String lastName, String email, String username, String password) {
