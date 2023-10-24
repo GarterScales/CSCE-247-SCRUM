@@ -42,6 +42,15 @@ public class UserList {
         return null;
     }
 
+    public boolean checkIDAvailability(UUID id) {
+        for (User user : userList) {
+            if (id.equals(user.getId())) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public User checkUser(String username, String password) {
         for (User user : userList) {
             if (checkPassword(password) == checkUsername(username)) {
