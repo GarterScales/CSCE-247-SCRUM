@@ -20,26 +20,8 @@ public class UserList {
         return userList;
     }
 
-    public UUID checkUsername(String username) {
-        for (User user : userList) {
-            if (username.equals(user.getUserName())) {
-                return user.getId();
-            }
-        }
-        return null;
-    }
-
     public boolean checkUsernameAvailability(String username) {
         return true;
-    }
-
-    public UUID checkPassword(String password) {
-        for (User user : userList) {
-            if (password.equals(user.getPassword())) {
-                return user.getId();
-            }
-        }
-        return null;
     }
 
     public boolean checkIDAvailability(UUID id) {
@@ -51,10 +33,15 @@ public class UserList {
         return true;
     }
 
+    // handle all here
     public User checkUser(String username, String password) {
         for (User user : userList) {
-            if (checkPassword(password) == checkUsername(username)) {
-                return user;
+            if (username.equals(user.getUserName())) {
+                if (password.equals(user.getPassword())) {
+                    return user;
+                } else {
+                    return null;
+                }
             }
         }
         return null;
