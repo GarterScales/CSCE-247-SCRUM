@@ -48,6 +48,20 @@ public class UI {
         keyboard.close();
     }
 
+    // only allows user to login
+    public void run2() {
+        Scanner keyboard2 = new Scanner(System.in);
+        System.out.println("Enter your username");
+        String username = keyboard2.nextLine();
+        System.out.println("Enter your password");
+        String password = keyboard2.nextLine();
+        if (systemFacade.login(username, password)) {
+            System.out.println("Login successful");
+        } else {
+            System.out.println("Login failed");
+        }
+    }
+
     public void scenario() {
 
     }
