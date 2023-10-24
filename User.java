@@ -26,11 +26,6 @@ public class User {
         genUUID();
     }
 
-    public User(String username, String password) {
-        setUserName(username);
-        setPassword(password);
-    }
-
     private void genUUID() {
         UUID tempID = UUID.randomUUID();
         boolean x = true;
@@ -90,9 +85,5 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public boolean checkPasswordRequirements(String password) {
-        return true;
     }
 }
