@@ -37,6 +37,7 @@ public class User {
         while (x) {
             if (UserList.getInstance().checkIDAvailability(tempID)) {
                 this.id = tempID;
+                x = false;
             } else {
                 tempID = UUID.randomUUID();
             }
