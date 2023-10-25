@@ -13,8 +13,23 @@ public class DataLoader extends DataConstants {
 		ui.run();
 	}
 
+	public static ArrayList<Task> getTasks() {
+		ArrayList<Task> tasks = new ArrayList<Task>();
+
+		return null;
+	}
+
 	public ArrayList<Project> getProjects() {
-		return new ArrayList<Project>();
+		ArrayList<Project> projects = new ArrayList<Project>();
+
+		try {
+			FileReader reader = new FileReader(PROJECT_FILE_NAME);
+			JSONArray projectJSON = (JSONArray) new JSONParser().parse(reader);
+
+
+		}
+
+		return null;
 	}
 
 	public static ArrayList<User> getUsers() {
