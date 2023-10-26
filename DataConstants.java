@@ -26,17 +26,18 @@ public class DataConstants {
   protected static final String REPLIES = "replies";
 
   // TASK
+  protected static final String TASK_FILE_NAME = "JSON/task.json";
   protected static final String TASK_ID = "id";
   protected static final String TASK_NAME = "name";
   protected static final String TASK_CONTENT = "taskContent";
   protected static final String PRIORITY = "priority";
   protected static final String TASK_TYPE = "type";
-  protected static final String LOG_ID = "logID";
+  protected static final String LOG = "log";
   protected static final String LOG_DATE = "date";
   protected static final String LOG_USER_ID = "userID";
-  protected static final String LOG = "log";
-  protected static final String REASON = "reason";
+  protected static final String LOG_ENUM = "logType";
+  protected static final String LOG_REASON = "reason";
   protected static final String HOURS = "hoursToComplete";
   protected static final String TASK_USER_ID = "userID";
-  protected static final String POINT_VALUE = "pointValue"; 
+  protected static final String POINT_VALUE = "pointValue";
 }

@@ -7,10 +7,11 @@ public class Comment {
     private Date date;
     private ArrayList<Comment> replies;
 
-    public Comment(User commenter, String content, Date date) {
+    public Comment(User commenter, String content, Date date, ArrayList<Comment> replies) {
         this.commenter = commenter;
         this.commentContent = content;
         this.date = date;
+        this.replies = replies;
     }
 
     public void removeComment(Comment comment) {
@@ -26,7 +27,7 @@ public class Comment {
     }
 
     public void addReply(Comment reply) {
-        
+
     }
 
     public ArrayList<Comment> displayReplies() {
