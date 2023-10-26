@@ -64,6 +64,35 @@ public class UI {
             // stuff to make a project
         } else if (projectChoice == 2) {
             // view projects
+            // list projects
+            ProjectList.viewProjects();
+
+            System.out.println("Would you like to 1. add or 2. remove");
+            int addRemove = keyboard.nextInt();
+            if (addRemove == 1) {
+                // add project
+                System.out.println("Enter the name of the project you would like to add");
+                String addName = keyboard.nextLine();
+                ProjectList.addProject(addName);
+            } else if (addRemove == 2) {
+                // remove project
+                System.out.println("Enter the name of the project you would like to remove");
+                String removeName = keyboard.nextLine();
+                ProjectList.removeProject(removeName);
+            }
+
+            System.out.println("Which project would you like to view?");
+            // later change to match string
+            System.out.println("1. Project 1, 2. Project 2");
+            int projectView = keyboard.nextInt();
+
+            if (projectView == 1) {
+                // show columns
+            } else if (projectView == 2) {
+                // show columns
+            } else {
+                System.out.println("Please enter a valid choice");
+            }
 
         } else {
             System.out.println("Please enter a valid choice");
