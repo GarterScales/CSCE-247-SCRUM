@@ -10,7 +10,8 @@ public abstract class Task {
   private int hoursToComplete;
   private User user;
   private ArrayList<Comment> comments;
-  public int pointValue;
+  private UUID id;
+  private int pointValue;
 
   public Task(UUID id, String name, String content, int priority, Log log, int hoursToComplete, UUID userID,
       ArrayList<Comment> comments, int pointValue) {
@@ -51,6 +52,25 @@ public abstract class Task {
 
   public void setPointValue(int pointValue) {
     this.pointValue = pointValue;
+  }
+
+  public UUID getID() {
+    return id;
+  }
+
+  public String toString() {
+    String returnString = "\nTask Name: " + this.name + "\nTask ID: " + this.id + "\nTask Content: " +
+        this.taskContent + "\nPriority: " + this.priority + "\nLog: " + this.logHistory.toString()
+        + "\nHours to Complete: " + this.hoursToComplete +
+        "\nAssigned User: " + this.user.toString() + "\nPoint Value: " + this.pointValue;
+
+    if (comments != null) {
+      for (Comment comment : comments) {
+        returnString += comment.toString();
+      }
+    }
+
+    return returnString;
   }
 
 }

@@ -33,7 +33,7 @@ public class SystemFACADE {
 
     }
 
-    public ProjectList getProjects(User user) {
+    public ProjectList getProjects() {
         return ProjectList.getInstance();
     }
 }

@@ -1,3 +1,3 @@
-public enum UserRole {
+public enum UserRoleEnum {
     MASTER, DESIGNER, DEVELOPER, WRITER
 }

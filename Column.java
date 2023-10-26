@@ -20,4 +20,12 @@ public class Column {
     public String getName() {
         return columnName;
     }
+
+    public String toString() {
+        String returnString = "\nColumn Name: " + this.columnName;
+        for (Task task : taskList) {
+            returnString += task.toString();
+        }
+        return returnString;
+    }
 }

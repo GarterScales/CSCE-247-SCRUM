@@ -74,7 +74,7 @@ public class UserList {
 
     public User getUserbyId(UUID id) {
         for (User user : userList) {
-            if (id == user.getId()) {
+            if (id.equals(user.getId())) {
                 return user;
             }
         }

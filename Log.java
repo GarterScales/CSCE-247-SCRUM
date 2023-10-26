@@ -1,25 +1,25 @@
-import java.sql.Date;
+import java.time.LocalDate;
 
 public class Log {
-    Date date;
+    LocalDate date;
     User user;
     LogEnum logEnum;
     String reason;
 
-    public Log(Date date, User user, LogEnum logEnum, String reason) {
+    public Log(LocalDate date, User user, LogEnum logEnum, String reason) {
         this.date = date;
         this.user = user;
         this.logEnum = logEnum;
         this.reason = reason;
     }
 
-    public Log(Date date, User user, LogEnum logEnum) {
+    public Log(LocalDate date, User user, LogEnum logEnum) {
         this.date = date;
         this.user = user;
         this.logEnum = logEnum;
     }
 
-    public void changeLog(Date date, User user) {
+    public void changeLog(LocalDate date, User user) {
         switch (this.logEnum) {
             case BACKLOG:
                 this.logEnum = LogEnum.TODO;
@@ -41,7 +41,7 @@ public class Log {
         this.user = user;
     }
 
-    public void reverseLog(Date date, User user, String reason) {
+    public void reverseLog(LocalDate date, User user, String reason) {
         switch (this.logEnum) {
             case BACKLOG:
                 break;
@@ -62,5 +62,10 @@ public class Log {
         this.date = date;
         this.user = user;
         this.reason = reason;
+    }
+
+    public String toString() {
+        return "\nDate: " + this.date + "\nUser: " + this.user.toString() + "\nLog Type: " + this.logEnum
+                + (this.reason != null ? "" : "\nReason" + this.reason);
     }
 }
