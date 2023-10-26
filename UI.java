@@ -74,6 +74,8 @@ public class UI {
 
                 } else if (assignChoice == 2) {
 
+                } else {
+                    System.out.println("Please enter a valid choice");
                 }
 
                 // adding priority to task
@@ -86,15 +88,20 @@ public class UI {
                     int priorityRank = keyboard.nextInt();
                 } else if (priorityChoice == 2) {
 
+                } else {
+                    System.out.println("Please enter a valid choice");
                 }
 
                 // edit task
                 System.out.println("Would you like to edit the task?");
+                System.out.println("1. Yes 2. No");
                 int editChoice = keyboard.nextInt();
                 if (editChoice == 1) {
 
                 } else if (editChoice == 2) {
 
+                } else {
+                    System.out.println("Please enter a valid choice");
                 }
 
                 // add name to ask
@@ -103,20 +110,42 @@ public class UI {
 
                 // add type to task
                 System.out.println("Would you like to add a type for the task?");
+                System.out.println("1. Yes 2. No");
                 int typeChoice = keyboard.nextInt();
                 if (typeChoice == 1) {
+                    System.out.println("What type would you like to assign for the task?");
+                    System.out.println("1. bug, 2. new feature, 3. refactor, 4. documentation, 5. blank issue");
+                    int typeSelect = keyboard.nextInt();
+                    if (typeSelect == 1) {
+
+                    } else if (typeSelect == 2) {
+
+                    } else if (typeSelect == 3) {
+
+                    } else if (typeSelect == 4) {
+
+                    } else if (typeSelect == 5) {
+
+                    } else {
+                        System.out.println("Please select a valid type");
+                    }
 
                 } else if (typeChoice == 2) {
 
+                } else {
+                    System.out.println("Please enter a valid choice");
                 }
 
                 // archive task
                 System.out.println("Would you like to archive the task?");
+                System.out.println("1. Yes 2. No");
                 int archiveChoice = keyboard.nextInt();
                 if (archiveChoice == 1) {
 
                 } else if (archiveChoice == 2) {
 
+                } else {
+                    System.out.println("Please enter a valid choice");
                 }
 
             } else if (taskChoice == 2) {
@@ -127,14 +156,18 @@ public class UI {
                     System.out.println("Goodbye");
                 } else if (deleteChoice == 2) {
 
+                } else {
+                    System.out.println("Please enter a valid choice");
                 }
+            } else {
+                System.out.println("Please enter a valid choice");
             }
+
         } else if (projectChoice == 2) {
             System.out.println("Goodbye");
         } else {
             System.out.println("Please enter a valid choice");
         }
-
     }
 
     public void scenario() {
