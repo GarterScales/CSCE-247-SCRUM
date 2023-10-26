@@ -11,16 +11,20 @@ public class Project {
     private UUID id;
 
     public Project(String projectName) {
-        this.projectName = projectName;
+        setName(projectName);
+        genUUID();
+        columnList = new ArrayList<Column>();
+        comments = new ArrayList<Comment>();
+        roleMap = new HashMap<UserRoleEnum, User>();
     }
 
     public Project(UUID id, String projectName, ArrayList<Column> columnList, ArrayList<Comment> comments,
             HashMap<UserRoleEnum, User> roleMap) {
-        this.id = id;
-        this.projectName = projectName;
+        setId(id);
+        setName(projectName);
         this.columnList = columnList;
-        this.comments = comments;
-        this.roleMap = roleMap;
+        setComments(comments);
+        setRoleMap(roleMap);
     }
 
     public void addTask(Task task, String columnName) {
@@ -43,16 +47,18 @@ public class Project {
         return new ArrayList<Task>();
     }
 
-    public void addUser(UserRoleEnum role, String username) {
-
+    public void addUser(UserRoleEnum role, UUID id) {
+        roleMap.put(role, UserList.getUserbyId(id));
     }
 
     public void addComment(Comment comment) {
-
+        comments.add(comment);
     }
 
-    public ArrayList<Comment> displayComments() {
-        return this.comments;
+    public void displayComments() {
+        for(Comment comment : comments) {
+            comment.toString();
+        }
     }
 
     public void setName(String name) {
@@ -61,6 +67,43 @@ public class Project {
 
     public String getName() {
         return this.projectName;
+    }
+
+    private void genUUID() {
+        UUID tempID = UUID.randomUUID();
+        boolean x = true;
+        while (x) {
+            if (ProjectList.getInstance().checkIDAvailability(tempID)) {
+                this.id = tempID;
+                x = false;
+            } else {
+                tempID = UUID.randomUUID();
+            }
+        }
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setComments(ArrayList<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public ArrayList<Comment> getComments() {
+        return comments;
+    }
+
+    public void setRoleMap(HashMap<UserRoleEnum, User> roleMap) {
+        this.roleMap = roleMap;
+    }
+
+    public HashMap<UserRoleEnum, User> getRoleMap() {
+        return roleMap;
     }
 
     public String toString() {
