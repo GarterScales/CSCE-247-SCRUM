@@ -47,8 +47,8 @@ public class Project {
         return new ArrayList<Task>();
     }
 
-    public void addUser(UserRoleEnum role, UUID id) {
-        roleMap.put(role, UserList.getUserbyId(id));
+    public void addUser(UserRoleEnum role, User user) {
+        roleMap.put(role, user);
     }
 
     public void addComment(Comment comment) {
