@@ -34,15 +34,54 @@ public class Project {
     // we need to think about creating the log
     // fill this oout
     public void addTask(String name, String content, int priority, Log log, int hoursToComplete, UUID userID,
-            int pointValue) {
-        switch (log.logEnum) {
-            case BACKLOG:
+            int pointValue, String type) {
+        switch (type) {
+            case "design":
+                getColumnType(log).add(new DesignTask(name, content, priority, log, hoursToComplete, userID, pointValue)); //need new overloaded constructor for all 4
+                break;
 
+            case "documentation":
+            getColumnType(log).add(new DocumentationTask(name, content, priority, log, hoursToComplete, userID, pointValue));
+                break;
+
+            case "bug":
+            getColumnType(log).add(new BugTask(name, content, priority, log, hoursToComplete, userID, pointValue));
+                break;
+
+            case "new feature":
+            getColumnType(log).add(new NewFeatureTask(name, content, priority, log, hoursToComplete, userID, pointValue));
                 break;
 
             default:
                 break;
         }
+    }
+
+    public ArrayList<Task> getColumnType(Log log) {
+        int columnNum = 0;
+        
+        switch (log.logEnum) {
+            case BACKLOG:
+                columnNum = 0;
+                break;
+
+            case TODO:
+                columnNum = 1;
+                break;
+
+            case INPROGRESS:
+            columnNum = 2;
+                break;
+
+            case COMPLETE:
+            columnNum = 3;
+                break;
+
+            default:
+                break;
+        }
+
+        return columnList.get(columnNum).getTasks();
     }
 
     public void addUser(UserRoleEnum role, User user) {
