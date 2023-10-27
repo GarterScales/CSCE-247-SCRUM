@@ -39,7 +39,8 @@ public class UI {
                 String newUsername = keyboard.nextLine();
                 System.out.println("Enter your password");
                 String newPassword = keyboard.nextLine();
-                switch (systemFacade.signUp(firstName, lastName, email, newUsername, newPassword)) {
+                switch (systemFacade.signUp(firstName, lastName, email, newUsername,
+                        newPassword)) {
                     case 0:
                         System.out.println("Sucessfully registered");
                         break;
@@ -54,6 +55,12 @@ public class UI {
                 break;
         }
         keyboard.close();
+    }
+
+    public void runPrintData() {
+        UserList userList = UserList.getInstance();
+        ProjectList projectList = ProjectList.getInstance();
+        projectList.printProjects();
     }
 
     public void run2() {

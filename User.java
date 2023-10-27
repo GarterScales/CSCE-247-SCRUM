@@ -86,4 +86,9 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String toString() {
+        return "\nID: " + this.id + "\nFirst Name: " + this.firstName + "\nLast Name: " + this.lastName +
+                "\nEmail: " + this.email + "\nUsername: " + this.username + "\nPassword: " + this.password;
+    }
 }
