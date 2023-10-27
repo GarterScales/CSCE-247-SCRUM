@@ -15,7 +15,7 @@ public class DataLoader extends DataConstants {
 
 	public static void main(String[] args) {
 		UI ui = new UI();
-		ui.run();
+		ui.runPrintData();
 	}
 
 	public static ArrayList<Task> getTasks() {
@@ -128,7 +128,7 @@ public class DataLoader extends DataConstants {
 
 					for (Object column : columnsJSON) {
 						JSONObject columnJSON = (JSONObject) column;
-						String columnName = (String) columnJSON.get(COLUMN_NAME);
+						LogEnum columnName = LogEnum.valueOf((String) columnJSON.get(COLUMN_NAME));
 						JSONArray tasksIDsJSON = (JSONArray) projectJSON.get(TASK_IDS);
 						ArrayList<Task> tasks = new ArrayList<>();
 						if (tasksIDsJSON != null) {

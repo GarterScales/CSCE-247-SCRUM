@@ -4,23 +4,23 @@
         "projectName": "Awesome Project",
         "columnList": [
             {
-                "columnName": "Back Log",
+                "columnName": "BACKLOG",
                 "taskListIDs": [
                     "babf9e9b-a5da-4330-8699-4a2f043f17a0"
                 ]
             },
             {
-                "columnName": "To Do",
+                "columnName": "TODO",
                 "taskListIDs": [
                     "f0b62a92-6251-401a-84f6-52ac4894a3b2"
                 ]
             },
             {
-                "columnName": "In Progress",
+                "columnName": "INPROGRESS",
                 "taskListIDs": []
             },
             {
-                "columnName": "Complete",
+                "columnName": "COMPLETE",
                 "taskListIDs": []
             }
         ],

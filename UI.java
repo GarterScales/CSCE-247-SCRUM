@@ -58,7 +58,6 @@ public class UI {
     }
 
     public void runPrintData() {
-        UserList userList = UserList.getInstance();
         ProjectList projectList = ProjectList.getInstance();
         projectList.printProjects();
     }
@@ -87,12 +86,12 @@ public class UI {
                 // add project
                 System.out.println("Enter the name of the project you would like to add");
                 String addName = keyboard.nextLine();
-                ProjectList.addProject(addName);
+                projectList.addProject(addName);
             } else if (addRemove == 2) {
                 // remove project
                 System.out.println("Enter the name of the project you would like to remove");
                 String removeName = keyboard.nextLine();
-                ProjectList.removeProject(removeName);
+                projectList.removeProject(removeName);
             } else {
                 System.out.println("Please enter a valid choice");
             }
@@ -113,6 +112,7 @@ public class UI {
         } else {
             System.out.println("Please enter a valid choice");
         }
+        keyboard.close();
     }
 
     public void scenario() {
