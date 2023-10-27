@@ -65,7 +65,7 @@ public class UI {
 
         if (projectChoice == 1) {
             // list projects
-            ProjectList projectList = systemFacade.getProjects();
+            ProjectList projectList = ProjectList.getInstance();
             ArrayList<Project> projects = projectList.viewProjects();
 
             for (int i = 0; i < projects.size(); i++) {
