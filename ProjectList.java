@@ -16,14 +16,18 @@ public class ProjectList {
         return instance;
     }
 
-    public void ProjectBoard() {
-        for(Project project : projectList) {
-            project.toString();
-        }
+    public ArrayList<Project> getProjectList() {
+        return this.projectList;
     }
 
-    public ArrayList<Project> viewProjects() {
-        return new ArrayList<Project>();
+    public String ProjectBoard() {
+        String returnString = "";
+        if (!projectList.isEmpty()) {
+            for (Project project : projectList) {
+                returnString += project.toString();
+            }
+        }
+        return returnString;
     }
 
     public void addProject(String name) {
@@ -31,23 +35,23 @@ public class ProjectList {
     }
 
     public void removeProject(String name) {
-        for(int i = 0; i < projectList.size(); i++) {
-            if(projectList.get(i).getName().equals(name)) {
+        for (int i = 0; i < projectList.size(); i++) {
+            if (projectList.get(i).getName().equals(name)) {
                 projectList.remove(i);
             }
         }
     }
 
-    public Project selectProject(String name) {
-        for(Project project : projectList) {
-            if(project.getName().equals(name)) {
+    public Project selectProject(UUID id) {
+        for (Project project : projectList) {
+            if (project.getId().equals(id)) {
                 return project;
             }
         }
 
         return null;
     }
-    
+
     public boolean checkIDAvailability(UUID id) {
         for (Project project : projectList) {
             if (id.equals(project.getId())) {
@@ -55,17 +59,5 @@ public class ProjectList {
             }
         }
         return true;
-    }
-
-    public void printProjects() {
-        // for (Project project : projectList) {
-        // System.out.println(project.toString());
-        // }
-        if (!projectList.isEmpty()) {
-            for (Project project : projectList) {
-                System.out.println(project.toString());
-            }
-        }
-
     }
 }

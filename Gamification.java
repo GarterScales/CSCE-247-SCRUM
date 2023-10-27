@@ -3,7 +3,6 @@ import java.util.ArrayList;
 public class Gamification {
     private int points;
     private double bar;
-    private User user;
 
     public int editPoints() {
         return 0;

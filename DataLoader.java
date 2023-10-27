@@ -8,9 +8,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-// expecting errors in the methods below in areas relating to UUID and potentially ENUM, notice the first UUID is grabbed using fromString
-// but afterwards I simply cast the result, this may not work.
-
 public class DataLoader extends DataConstants {
 
 	public static void main(String[] args) {

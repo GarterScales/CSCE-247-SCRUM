@@ -5,21 +5,25 @@ public abstract class Task {
   private String name;
   private String taskContent;
   private int priority;
-  private String type;
   private Log logHistory;
   private int hoursToComplete;
   private User user;
   private ArrayList<Comment> comments;
   private UUID id;
   private int pointValue;
+  private boolean inSprint = false;
 
   public Task(UUID id, String name, String content, int priority, Log log, int hoursToComplete, UUID userID,
       ArrayList<Comment> comments, int pointValue) {
 
   }
 
-  public void SetIntSprint(boolean inSprint) {
+  public Task(String name, String content, int priority, Log log, int hoursToComplete, UUID userID, int pointValue) {
 
+  }
+
+  public void toggleSprint() {
+    this.inSprint = !this.inSprint;
   }
 
   public String getName() {
@@ -59,7 +63,8 @@ public abstract class Task {
   }
 
   public String toString() {
-    String returnString = "\nTask Name: " + this.name + "\nTask ID: " + this.id + "\nTask Content: " +
+    String returnString = "\nTask Name: " + this.name + "\nIn Sprint?: " + this.inSprint + "\nTask ID: " + this.id
+        + "\nTask Content: " +
         this.taskContent + "\nPriority: " + this.priority + "\nLog: " + this.logHistory.toString()
         + "\nHours to Complete: " + this.hoursToComplete +
         "\nAssigned User: " + this.user.toString() + "\nPoint Value: " + this.pointValue;

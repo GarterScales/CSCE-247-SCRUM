@@ -6,7 +6,10 @@ public class Sprint {
     private int sprintID;
     private Date startDate;
     private Date endDate;
-    
+
+    // CONVERT THIS TASK TO BOOLEAN IN TASK AND HAVE INDICATION OF BOOLEAN IN
+    // TOSTRING/HIGHLIGHT
+
     public Sprint(int sprintID) {
         this.sprintID = sprintID;
     }
@@ -20,6 +23,6 @@ public class Sprint {
     }
 
     public void setDate(int day, int month, int year, boolean isStart) {
-        
+
     }
 }

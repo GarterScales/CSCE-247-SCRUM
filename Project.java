@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.UUID;
 
 public class Project {
@@ -16,35 +15,34 @@ public class Project {
         columnList = createColumnList();
         comments = new ArrayList<Comment>();
         roleMap = new HashMap<UserRoleEnum, User>();
+        roleMap.put(UserRoleEnum.MASTER, SystemFACADE.currentUser);
     }
 
     public Project(UUID id, String projectName, ArrayList<Column> columnList, ArrayList<Comment> comments,
             HashMap<UserRoleEnum, User> roleMap) {
         setId(id);
         setName(projectName);
-        columnList = createColumnList();
+        this.columnList = columnList;
         setComments(comments);
         setRoleMap(roleMap);
-    }
-
-    public void addTask(Task task, String columnName) {
-
-    }
-
-    public void removeTask(Task task) {
-
-    }
-
-    public void editTask(Task task) {
-
     }
 
     public ArrayList<Task> getTasks() {
         return new ArrayList<Task>();
     }
 
-    public ArrayList<Task> displayTasks() {
-        return new ArrayList<Task>();
+    // we need to think about creating the log
+    // fill this oout
+    public void addTask(String name, String content, int priority, Log log, int hoursToComplete, UUID userID,
+            int pointValue) {
+        switch (log.logEnum) {
+            case BACKLOG:
+
+                break;
+
+            default:
+                break;
+        }
     }
 
     public void addUser(UserRoleEnum role, User user) {
@@ -56,7 +54,7 @@ public class Project {
     }
 
     public void displayComments() {
-        for(Comment comment : comments) {
+        for (Comment comment : comments) {
             comment.toString();
         }
     }

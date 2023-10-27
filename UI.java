@@ -59,7 +59,7 @@ public class UI {
 
     public void runPrintData() {
         ProjectList projectList = ProjectList.getInstance();
-        projectList.printProjects();
+        System.out.println(projectList.ProjectBoard());
     }
 
     public void run2() {
@@ -72,7 +72,7 @@ public class UI {
         if (projectChoice == 1) {
             // list projects
             ProjectList projectList = ProjectList.getInstance();
-            ArrayList<Project> projects = projectList.viewProjects();
+            ArrayList<Project> projects = projectList.getProjectList();
 
             for (int i = 0; i < projects.size(); i++) {
                 Project project = projects.get(i);
@@ -101,8 +101,8 @@ public class UI {
 
             if (projectView > 0 && projectView <= projects.size()) {
                 // user views selected project
-                Project selectedProject = projects.get(projectView - 1);
-                System.out.println(selectedProject.toString());
+                SystemFACADE.currentProject = projects.get(projectView - 1);
+                System.out.println(SystemFACADE.currentProject.toString());
 
             } else {
                 System.out.println("Please enter a valid choice");

@@ -58,7 +58,6 @@ public class UserList {
         return true;
     }
 
-    // handle all here
     public User checkUser(String username, String password) {
         for (User user : userList) {
             if (username.equals(user.getUserName())) {

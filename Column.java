@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Column {
     private ArrayList<Task> taskList;
@@ -7,6 +8,11 @@ public class Column {
     public Column(ArrayList<Task> tasks, LogEnum log) {
         this.taskList = tasks;
         this.log = log;
+    }
+
+    // make method to remove task from taskList
+    public void removeTask(UUID taskID) {
+
     }
 
     public ArrayList<Task> getTasks() {
