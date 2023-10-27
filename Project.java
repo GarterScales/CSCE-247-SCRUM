@@ -13,7 +13,7 @@ public class Project {
     public Project(String projectName) {
         setName(projectName);
         genUUID();
-        columnList = new ArrayList<Column>();
+        columnList = createColumnList();
         comments = new ArrayList<Comment>();
         roleMap = new HashMap<UserRoleEnum, User>();
     }
@@ -22,7 +22,7 @@ public class Project {
             HashMap<UserRoleEnum, User> roleMap) {
         setId(id);
         setName(projectName);
-        this.columnList = columnList;
+        columnList = createColumnList();
         setComments(comments);
         setRoleMap(roleMap);
     }
@@ -104,6 +104,17 @@ public class Project {
 
     public HashMap<UserRoleEnum, User> getRoleMap() {
         return roleMap;
+    }
+
+    public ArrayList<Column> createColumnList() {
+        columnList = new ArrayList<Column>();
+
+        columnList.add(new Column(new ArrayList<Task>(), LogEnum.BACKLOG));
+        columnList.add(new Column(new ArrayList<Task>(), LogEnum.TODO));
+        columnList.add(new Column(new ArrayList<Task>(), LogEnum.INPROGRESS));
+        columnList.add(new Column(new ArrayList<Task>(), LogEnum.COMPLETE));
+
+        return columnList;
     }
 
     public String toString() {
