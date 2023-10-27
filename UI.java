@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UI {
@@ -57,16 +58,22 @@ public class UI {
 
     public void run2() {
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("Would you like to make a project or view your projects?");
-        System.out.println("1. Make 2. View");
+        System.out.println("Would you like to view your projects?");
+        System.out.println("1. Yes 2. No");
         int projectChoice = keyboard.nextInt();
-        if (projectChoice == 1) {
-            // stuff to make a project
-        } else if (projectChoice == 2) {
-            // view projects
-            // list projects
-            ProjectList.viewProjects();
+        keyboard.nextLine();
 
+        if (projectChoice == 1) {
+            // list projects
+            ProjectList projectList = systemFacade.getProjects();
+            ArrayList<Project> projects = projectList.viewProjects();
+
+            for (int i = 0; i < projects.size(); i++) {
+                Project project = projects.get(i);
+                System.out.println((i + 1) + " " + project.getName());
+            }
+
+            // add and/or remove projects
             System.out.println("Would you like to 1. add or 2. remove");
             int addRemove = keyboard.nextInt();
             if (addRemove == 1) {
@@ -79,21 +86,23 @@ public class UI {
                 System.out.println("Enter the name of the project you would like to remove");
                 String removeName = keyboard.nextLine();
                 ProjectList.removeProject(removeName);
-            }
-
-            System.out.println("Which project would you like to view?");
-            // later change to match string
-            System.out.println("1. Project 1, 2. Project 2");
-            int projectView = keyboard.nextInt();
-
-            if (projectView == 1) {
-                // show columns
-            } else if (projectView == 2) {
-                // show columns
             } else {
                 System.out.println("Please enter a valid choice");
             }
 
+            System.out.println("Which project would you like to view?");
+            int projectView = keyboard.nextInt();
+
+            if (projectView > 0 && projectView <= projects.size()) {
+                // user views selected project
+                Project selectedProject = projects.get(projectView - 1);
+                System.out.println(selectedProject.toString());
+
+            } else {
+                System.out.println("Please enter a valid choice");
+            }
+        } else if (projectChoice == 2) {
+            System.out.println("Goodbye");
         } else {
             System.out.println("Please enter a valid choice");
         }
