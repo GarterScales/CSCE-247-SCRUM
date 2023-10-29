@@ -52,6 +52,28 @@ public class DataWriter extends DataConstants {
         }
     }
 
+    // NONFUNCTIONAL
+    public static void saveTasks() {
+        ProjectList projects = ProjectList.getInstance();
+        ArrayList<Project> projectList = projects.getProjectList();
+        JSONArray jsonProjects = new JSONArray();
+
+        // creating all the json objects
+        for (int i = 0; i < projectList.size(); i++) {
+            jsonProjects.add(getProjectJSON(projectList.get(i)));
+        }
+
+        // Write JSON file
+        try (FileWriter file = new FileWriter(PROJECT_FILE_NAME)) {
+
+            file.write(jsonProjects.toJSONString());
+            file.flush();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static JSONObject getUserJSON(User user) {
         JSONObject userDetails = new JSONObject();
         userDetails.put(USER_ID, user.getId().toString());
@@ -126,6 +148,7 @@ public class DataWriter extends DataConstants {
         return columnObject;
     }
 
+    // WILL NEED TO CHANGE
     public static JSONObject getTaskObject(Task task) {
         JSONObject taskObject = new JSONObject();
         taskObject.put(TASK_ID, task.getID());
