@@ -148,11 +148,11 @@ public class DataWriter extends DataConstants {
         taskObject.put(TASK_NAME, task.getName());
         taskObject.put(TASK_CONTENT, task.getTaskContent());
         taskObject.put(PRIORITY, task.getPriority());
-        taskObject.put(TASK_TYPE, task.get)
+        taskObject.put(TASK_TYPE, task.getTaskType());
         taskObject.put(LOG, getLogObject(task.getLog()));
         taskObject.put(HOURS, task.getHoursToComplete());
         taskObject.put(USER_ID, task.getUserId().toString());
-        
+
         ArrayList<Comment> comments = task.getComments();
         JSONArray commentsJSON = new JSONArray();
 
