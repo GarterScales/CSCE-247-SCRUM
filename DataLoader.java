@@ -120,30 +120,21 @@ public class DataLoader extends DataConstants {
 					UUID id = UUID.fromString((String) projectJSON.get(PROJECT_ID));
 					String projectName = (String) projectJSON.get(PROJECT_NAME);
 
-					JSONArray columnsJSON = (JSONArray) projectJSON.get(COLUMN_LIST);
-					ArrayList<Column> columns = new ArrayList<>();
-
-					for (Object column : columnsJSON) {
-						JSONObject columnJSON = (JSONObject) column;
-						LogEnum columnName = LogEnum.valueOf((String) columnJSON.get(COLUMN_NAME));
-						JSONArray tasksIDsJSON = (JSONArray) projectJSON.get(TASK_IDS);
-						ArrayList<Task> tasks = new ArrayList<>();
-						if (tasksIDsJSON != null) {
-							for (Object taskID : tasksIDsJSON) {
-								JSONObject taskIDJSON = (JSONObject) taskID;
-								UUID taskUuid = UUID.fromString((String) taskIDJSON.get(TASK_ID));
-								if (!taskList.isEmpty()) {
-									for (Task task : taskList) {
-										if (task.getID() == taskUuid) {
-											tasks.add(task);
-											break;
-										}
+					JSONArray tasksIDsJSON = (JSONArray) projectJSON.get(TASK_IDS);
+					ArrayList<Task> tasks = new ArrayList<>();
+					if (tasksIDsJSON != null) {
+						for (Object taskID : tasksIDsJSON) {
+							JSONObject taskIDJSON = (JSONObject) taskID;
+							UUID taskUuid = UUID.fromString((String) taskIDJSON.get(TASK_ID));
+							if (!taskList.isEmpty()) {
+								for (Task task : taskList) {
+									if (task.getID() == taskUuid) {
+										tasks.add(task);
+										break;
 									}
 								}
 							}
 						}
-
-						columns.add(new Column(tasks, columnName));
 					}
 
 					JSONArray commentsJSON = (JSONArray) projectJSON.get(COMMENTS);
@@ -169,7 +160,7 @@ public class DataLoader extends DataConstants {
 						}
 					}
 
-					projects.add((Project) (new Project(id, projectName, columns, comments, roleMap)));
+					projects.add((Project) (new Project(id, projectName, taskList, comments, roleMap)));
 				}
 			}
 

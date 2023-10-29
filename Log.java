@@ -19,6 +19,22 @@ public class Log {
         this.logEnum = logEnum;
     }
 
+    public LocalDate getDate() {
+        return this.date;
+    }
+
+    public User getUser() {
+        return this.user;
+    }
+
+    public LogEnum getType() {
+        return this.logEnum;
+    }
+
+    public String getReason() {
+        return this.reason;
+    }
+
     public void changeLog(LocalDate date, User user) {
         switch (this.logEnum) {
             case BACKLOG:

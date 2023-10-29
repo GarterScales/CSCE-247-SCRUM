@@ -91,11 +91,11 @@ public class DataWriter extends DataConstants {
         projectDetails.put(PROJECT_ID, project.getId().toString());
         projectDetails.put(PROJECT_NAME, project.getName());
 
-        ArrayList<Column> columns = project.getColumns();
-        JSONArray columnsJSON = new JSONArray();
+        ArrayList<Task> tasks = project.getTasks();
+        JSONArray tasksJSON = new JSONArray();
 
-        for (Column column : columns) {
-            columnsJSON.add(getColumnObject(column));
+        for (Task task : tasks) {
+            tasksJSON.add(getTaskIDObject(task));
         }
 
         ArrayList<Comment> comments = project.getComments();
@@ -136,22 +136,41 @@ public class DataWriter extends DataConstants {
         return roleObject;
     }
 
-    public static JSONObject getColumnObject(Column column) {
-        JSONObject columnObject = new JSONObject();
-        columnObject.put(COLUMN_NAME, column.getName());
-        JSONArray tasksJSON = new JSONArray();
-        ArrayList<Task> tasks = column.getTasks();
-        for (Task task : tasks) {
-            tasksJSON.add(getTaskObject(task));
-        }
-        columnObject.put(TASK_IDS, tasksJSON);
-        return columnObject;
+    public static JSONObject getTaskIDObject(Task task) {
+        JSONObject taskIDObject = new JSONObject();
+        taskIDObject.put(TASK_ID, task.getID().toString());
+        return taskIDObject;
     }
 
-    // WILL NEED TO CHANGE
     public static JSONObject getTaskObject(Task task) {
         JSONObject taskObject = new JSONObject();
-        taskObject.put(TASK_ID, task.getID());
+        taskObject.put(TASK_ID, task.getID().toString());
+        taskObject.put(TASK_NAME, task.getName());
+        taskObject.put(TASK_CONTENT, task.getTaskContent());
+        taskObject.put(PRIORITY, task.getPriority());
+        taskObject.put(TASK_TYPE, task.get)
+        taskObject.put(LOG, getLogObject(task.getLog()));
+        taskObject.put(HOURS, task.getHoursToComplete());
+        taskObject.put(USER_ID, task.getUserId().toString());
+        
+        ArrayList<Comment> comments = task.getComments();
+        JSONArray commentsJSON = new JSONArray();
+
+        for (Comment comment : comments) {
+            commentsJSON.add(getCommentJSON(comment));
+        }
+        taskObject.put(COMMENTS, commentsJSON);
+        taskObject.put(POINT_VALUE, task.getPointValue());
+
         return taskObject;
+    }
+
+    public static JSONObject getLogObject(Log log) {
+        JSONObject logObject = new JSONObject();
+        logObject.put(LOG_DATE, log.getDate().toString());
+        logObject.put(LOG_USER_ID, log.getUser().getId().toString());
+        logObject.put(LOG_ENUM, log.getType());
+        logObject.put(LOG_REASON, log.getReason());
+        return logObject;
     }
 }
