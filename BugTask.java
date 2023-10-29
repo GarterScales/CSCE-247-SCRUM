@@ -12,6 +12,11 @@ public class BugTask extends Task {
         setBugEffect(bugEffect);
     }
 
+    public BugTask(UUID id, String name, String content, int priority, Log log, int hoursToComplete, UUID userID,
+            ArrayList<Comment> comments, int pointValue) {
+        super(id, name, content, priority, log, hoursToComplete, userID, comments, pointValue);
+    }
+
     public BugTask(String name, String content, int priority, Log log, int hoursToComplete, UUID userID, int pointValue) {
         super(name, content, priority, log, hoursToComplete, userID, pointValue);
        
@@ -21,15 +26,15 @@ public class BugTask extends Task {
         return reproductionSteps;
     }
 
-    public void setReproductionSteps(String newSteps) {
-        reproductionSteps = newSteps;
+    public void setReproductionSteps(String reproductionSteps) {
+        this.reproductionSteps = reproductionSteps;
     }
 
     public String getBugEffect() {
         return bugEffect;
     }
 
-    public void setBugEffect(String newEffect) {
-        bugEffect = newEffect;
+    public void setBugEffect(String bugEffect) {
+        this.bugEffect = bugEffect;
     }
 }
