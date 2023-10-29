@@ -12,7 +12,11 @@ public class Column {
 
     // make method to remove task from taskList
     public void removeTask(UUID taskID) {
-
+        for (int i = 0; i < taskList.size(); i++) {
+            if (taskList.get(i).getID() == taskID) {
+                taskList.remove(i);
+            }
+        }
     }
 
     public ArrayList<Task> getTasks() {
