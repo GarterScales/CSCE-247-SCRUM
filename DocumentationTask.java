@@ -3,7 +3,7 @@ import java.util.UUID;
 
 public class DocumentationTask extends Task {
     private String toDocument;
-    
+
     public DocumentationTask(UUID id, String name, String content, int priority, Log log, int hoursToComplete,
             UUID userID, ArrayList<Comment> comments, int pointValue, String toDocument) {
         super(id, name, content, priority, log, hoursToComplete, userID, comments, pointValue);
@@ -15,7 +15,8 @@ public class DocumentationTask extends Task {
         super(id, name, content, priority, log, hoursToComplete, userID, comments, pointValue);
     }
 
-    public DocumentationTask(String name, String content, int priority, Log log, int hoursToComplete, UUID userID, int pointValue) {
+    public DocumentationTask(String name, String content, int priority, Log log, int hoursToComplete, UUID userID,
+            int pointValue) {
         super(name, content, priority, log, hoursToComplete, userID, pointValue);
     }
 
@@ -25,5 +26,9 @@ public class DocumentationTask extends Task {
 
     public void setToDocument(String toDocument) {
         this.toDocument = toDocument;
+    }
+
+    public String getTaskType() {
+        return "DocumentationTask";
     }
 }
