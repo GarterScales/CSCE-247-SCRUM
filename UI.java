@@ -68,9 +68,10 @@ public class UI {
             ProjectList projectList = ProjectList.getInstance();
             ArrayList<Project> projects = projectList.viewProjects();
 
-            for (int i = 0; i < projects.size(); i++) {
-                Project project = projects.get(i);
-                System.out.println((i + 1) + " " + project.getName());
+            // display project starting from 1
+            int index = 1;
+            for (Project project : projects) {
+                System.out.println(index + " " + project.getName());
             }
 
             // add and/or remove projects
