@@ -4,7 +4,7 @@
     "name": "Task 1",
     "taskContent": "Complete new feature",
     "priority": 1,
-    "type": "NewFeature",
+    "type": "NewFeatureTask",
     "log": {
       "date": "2023-10-05",
       "userID": "efb43682-703d-4dae-9853-f397c8625d96",

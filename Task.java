@@ -29,7 +29,6 @@ public abstract class Task {
     setLog(log);
     setHoursToComplete(hoursToComplete);
     setUserId(userID);
-    ;
     setComments(comments);
     setPointValue(pointValue);
   }
@@ -169,7 +168,7 @@ public abstract class Task {
         + "\nTask Content: " +
         this.taskContent + "\nPriority: " + this.priority + "\nLog: " + this.log.toString()
         + "\nHours to Complete: " + this.hoursToComplete +
-        "\nAssigned User: " + this.user.toString() + "\nPoint Value: " + this.pointValue;
+        "\nAssigned User: " + this.userId + "\nPoint Value: " + this.pointValue;
 
     if (comments != null) {
       for (Comment comment : comments) {
