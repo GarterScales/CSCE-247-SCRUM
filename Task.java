@@ -13,6 +13,12 @@ public abstract class Task {
   private UUID userId;
   private int pointValue;
   private boolean inSprint = false;
+  private String toDesign;
+  private String toDocument;
+  private String reproductionSteps;
+  private String bugEffect;
+  private String justification;
+  private String intention;
 
   public Task(UUID id, String name, String content, int priority, Log log, int hoursToComplete, UUID userID,
       ArrayList<Comment> comments, int pointValue) {
@@ -132,6 +138,30 @@ public abstract class Task {
 
   public UUID getID() {
     return id;
+  }
+
+  public String getToDesign() {
+    return this.toDesign;
+  }
+
+  public String getToDocument() {
+    return this.toDocument;
+  }
+
+  public String getReproductionSteps() {
+    return this.reproductionSteps;
+  }
+
+  public String getBugEffect() {
+    return this.bugEffect;
+  }
+
+  public String getJustification() {
+    return this.justification;
+  }
+
+  public String getIntention() {
+    return this.intention;
   }
 
   public String toString() {

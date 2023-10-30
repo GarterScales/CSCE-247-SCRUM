@@ -52,7 +52,6 @@ public class DataWriter extends DataConstants {
         }
     }
 
-    // NONFUNCTIONAL
     public static void saveTasks() {
         ProjectList projects = ProjectList.getInstance();
         ArrayList<Project> projectList = projects.getProjectList();
@@ -152,6 +151,12 @@ public class DataWriter extends DataConstants {
         taskObject.put(LOG, getLogObject(task.getLog()));
         taskObject.put(HOURS, task.getHoursToComplete());
         taskObject.put(USER_ID, task.getUserId().toString());
+        taskObject.put(TO_DESIGN, task.getToDesign());
+        taskObject.put(TO_DOCUMENT, task.getToDocument());
+        taskObject.put(REPRODUCTION_STEPS, task.getReproductionSteps());
+        taskObject.put(BUG_EFFECT, task.getBugEffect());
+        taskObject.put(JUSTIFICATION, task.getJustification());
+        taskObject.put(INTENTION, task.getIntention());
 
         ArrayList<Comment> comments = task.getComments();
         JSONArray commentsJSON = new JSONArray();

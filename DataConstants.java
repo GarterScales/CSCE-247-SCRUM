@@ -39,7 +39,7 @@ public class DataConstants {
   protected static final String HOURS = "hoursToComplete";
   protected static final String TASK_USER_ID = "userID";
   protected static final String POINT_VALUE = "pointValue";
-  protected static final String To_DESIGN = "toDesign";
+  protected static final String TO_DESIGN = "toDesign";
   protected static final String TO_DOCUMENT = "toDocument";
   protected static final String REPRODUCTION_STEPS = "reproductionSteps";
   protected static final String BUG_EFFECT = "bugEffect";

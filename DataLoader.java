@@ -35,6 +35,13 @@ public class DataLoader extends DataConstants {
 					UUID userID = UUID.fromString((String) taskJSON.get(TASK_USER_ID));
 					int pointValue = (int) (long) taskJSON.get(POINT_VALUE);
 
+					String toDesign = (String) taskJSON.get(TO_DESIGN);
+					String toDocument = (String) taskJSON.get(TO_DOCUMENT);
+					String reproductionSteps = (String) taskJSON.get(REPRODUCTION_STEPS);
+					String bugEffect = (String) taskJSON.get(BUG_EFFECT);
+					String justification = (String) taskJSON.get(JUSTIFICATION);
+					String intention = (String) taskJSON.get(INTENTION);
+
 					JSONObject logObject = (JSONObject) taskJSON.get(LOG);
 					UUID logUserUUID = UUID.fromString((String) logObject.get(LOG_USER_ID));
 					LogEnum logEnum = LogEnum.valueOf((String) logObject.get(LOG_ENUM));
@@ -54,23 +61,21 @@ public class DataLoader extends DataConstants {
 					}
 
 					switch ((String) taskJSON.get(TASK_TYPE)) {
-						// will need to add custom elements of these classes to the JSON and load them
-						// here
 						case "BugTask":
 							tasks.add((Task) (new BugTask(id, taskName, content, priority, log, hoursToComplete, userID, comments,
-									pointValue)));
+									pointValue, reproductionSteps, bugEffect)));
 							break;
 						case "DesignTask":
 							tasks.add((Task) (new DesignTask(id, taskName, content, priority, log, hoursToComplete, userID, comments,
-									pointValue)));
+									pointValue, toDesign)));
 							break;
 						case "NewFeatureTask":
 							tasks.add((Task) (new NewFeatureTask(id, taskName, content, priority, log, hoursToComplete, userID,
-									comments, pointValue)));
+									comments, pointValue, justification, intention)));
 							break;
 						case "DocumentationTask":
-							tasks.add((Task) (new NewFeatureTask(id, taskName, content, priority, log, hoursToComplete, userID,
-									comments, pointValue)));
+							tasks.add((Task) (new DocumentationTask(id, taskName, content, priority, log, hoursToComplete, userID,
+									comments, pointValue, toDocument)));
 							break;
 					}
 				}
