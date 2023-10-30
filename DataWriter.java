@@ -8,8 +8,14 @@ import java.util.UUID;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+/**
+ * Responsible for writing data to JSON files
+ */
 public class DataWriter extends DataConstants {
 
+    /**
+     * Save user data to JSON file
+     */
     public static void saveUsers() {
         UserList users = UserList.getInstance();
         ArrayList<User> userList = users.getUsers();
@@ -31,6 +37,9 @@ public class DataWriter extends DataConstants {
         }
     }
 
+    /**
+     * Save project data to JSON file
+     */
     public static void saveProjects() {
         ProjectList projects = ProjectList.getInstance();
         ArrayList<Project> projectList = projects.getProjectList();
@@ -52,6 +61,9 @@ public class DataWriter extends DataConstants {
         }
     }
 
+    /**
+     * Save task data to JSON file
+     */
     public static void saveTasks() {
         ProjectList projects = ProjectList.getInstance();
         ArrayList<Project> projectList = projects.getProjectList();
@@ -73,6 +85,12 @@ public class DataWriter extends DataConstants {
         }
     }
 
+    /**
+     * Convert User to JSON object
+     * 
+     * @param user The User object to convert
+     * @return A JSON object which represents the user
+     */
     public static JSONObject getUserJSON(User user) {
         JSONObject userDetails = new JSONObject();
         userDetails.put(USER_ID, user.getId().toString());
@@ -85,6 +103,12 @@ public class DataWriter extends DataConstants {
         return userDetails;
     }
 
+    /**
+     * Convert Project to JSON object
+     * 
+     * @param project The Project object to convert
+     * @return A JSON object which represents the project
+     */
     public static JSONObject getProjectJSON(Project project) {
         JSONObject projectDetails = new JSONObject();
         projectDetails.put(PROJECT_ID, project.getId().toString());
@@ -123,6 +147,12 @@ public class DataWriter extends DataConstants {
         return projectDetails;
     }
 
+    /**
+     * Convert Comment to JSON object
+     * 
+     * @param comment The Comment object to convert
+     * @return JSON object which represents the comment
+     */
     public static JSONObject getCommentJSON(Comment comment) {
         JSONObject commentDetails = new JSONObject();
         commentDetails.put(COMMENTER_ID, comment.getCommenter().getId().toString());
@@ -138,6 +168,12 @@ public class DataWriter extends DataConstants {
         return commentDetails;
     }
 
+    /**
+     * Convert UserRoleEnum-User mapping to JSON object
+     * 
+     * @param entry Mapping of a role to a user
+     * @return JSON object which represents the role mapping
+     */
     public static JSONObject getRoleObject(Map.Entry<UserRoleEnum, User> entry) {
         JSONObject roleObject = new JSONObject();
         roleObject.put(ROLE, entry.getKey().toString());
@@ -145,6 +181,12 @@ public class DataWriter extends DataConstants {
         return roleObject;
     }
 
+    /**
+     * Convert Task to JSON object
+     * 
+     * @param task The Task object to convert
+     * @return JSON object which represents the task
+     */
     public static JSONObject getTaskObject(Task task) {
         JSONObject taskObject = new JSONObject();
         taskObject.put(TASK_ID, task.getID().toString());
@@ -174,6 +216,12 @@ public class DataWriter extends DataConstants {
         return taskObject;
     }
 
+    /**
+     * Convert Log to JSON object
+     * 
+     * @param log The Log object to convert
+     * @return JSON object which represents the log
+     */
     public static JSONObject getLogObject(Log log) {
         JSONObject logObject = new JSONObject();
         logObject.put(LOG_DATE, log.getDate().toString());
