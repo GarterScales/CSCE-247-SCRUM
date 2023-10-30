@@ -120,23 +120,19 @@ public class DataLoader extends DataConstants {
 			JSONArray projectsJSON = (JSONArray) new JSONParser().parse(reader);
 
 			if (projectsJSON != null) {
-				for (int i = 0; i < projectsJSON.size(); i++) {
-					JSONObject projectJSON = (JSONObject) projectsJSON.get(i);
+				for (Object projectObject : projectsJSON) {
+					JSONObject projectJSON = (JSONObject) projectObject;
 					UUID id = UUID.fromString((String) projectJSON.get(PROJECT_ID));
 					String projectName = (String) projectJSON.get(PROJECT_NAME);
 
 					JSONArray tasksIDsJSON = (JSONArray) projectJSON.get(TASK_IDS);
 					ArrayList<Task> tasks = new ArrayList<>();
-					if (tasksIDsJSON != null) {
-						for (Object taskID : tasksIDsJSON) {
-							JSONObject taskIDJSON = (JSONObject) taskID;
-							UUID taskUuid = UUID.fromString((String) taskIDJSON.get(TASK_ID));
-							if (!taskList.isEmpty()) {
-								for (Task task : taskList) {
-									if (task.getID() == taskUuid) {
-										tasks.add(task);
-										break;
-									}
+					if (tasksIDsJSON != null && !tasksIDsJSON.isEmpty() && !taskList.isEmpty()) {
+						for (int i = 0; i < tasksIDsJSON.size(); i++) {
+							for (Task task : taskList) {
+								if (task.getID().toString().equals(tasksIDsJSON.get(i))) {
+									tasks.add(task);
+									break;
 								}
 							}
 						}
@@ -145,7 +141,7 @@ public class DataLoader extends DataConstants {
 					JSONArray commentsJSON = (JSONArray) projectJSON.get(COMMENTS);
 					ArrayList<Comment> comments = new ArrayList<>();
 
-					if (commentsJSON != null) {
+					if (commentsJSON != null && !commentsJSON.isEmpty()) {
 						for (Object c : commentsJSON) {
 							JSONObject toPass = (JSONObject) c;
 							comments.add(parseComment(toPass));
@@ -165,7 +161,7 @@ public class DataLoader extends DataConstants {
 						}
 					}
 
-					projects.add((Project) (new Project(id, projectName, taskList, comments, roleMap)));
+					projects.add((Project) (new Project(id, projectName, tasks, comments, roleMap)));
 				}
 			}
 

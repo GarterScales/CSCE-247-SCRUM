@@ -32,12 +32,14 @@ public class ProjectList {
 
     public void addProject(String name) {
         projectList.add(new Project(name));
+        DataWriter.saveProjects();
     }
 
     public void removeProject(String name) {
         for (int i = 0; i < projectList.size(); i++) {
             if (projectList.get(i).getName().equals(name)) {
                 projectList.remove(i);
+                DataWriter.saveProjects();
             }
         }
     }

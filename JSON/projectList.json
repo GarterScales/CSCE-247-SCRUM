@@ -1,41 +1,39 @@
 [
   {
-    "id": "6ec4fa08-9062-48bb-992a-8b39ab2bd419",
-    "projectName": "Awesome Project",
-    "taskListIDs": [
-      "babf9e9b-a5da-4330-8699-4a2f043f17a0",
-      "f0b62a92-6251-401a-84f6-52ac4894a3b2"
-    ],
     "comments": [
       {
-        "commenterUUID": "efb43682-703d-4dae-9853-f397c8625d96",
-        "content": "Fix issue on line 25.",
         "date": "2023-10-06",
+        "commenterUUID": "efb43682-703d-4dae-9853-f397c8625d96",
         "replies": [
           {
-            "commenterUUID": "662bf3e6-a5cc-499f-a642-a31e89289168",
-            "content": "Issue resolved",
             "date": "2023-10-07",
-            "replies": []
+            "commenterUUID": "662bf3e6-a5cc-499f-a642-a31e89289168",
+            "replies": [],
+            "content": "Issue resolved"
           },
           {
-            "commenterUUID": "efb43682-703d-4dae-9853-f397c8625d96",
-            "content": "Thank you.",
             "date": "2023-10-08",
-            "replies": []
+            "commenterUUID": "efb43682-703d-4dae-9853-f397c8625d96",
+            "replies": [],
+            "content": "Thank you."
           }
-        ]
+        ],
+        "content": "Fix issue on line 25."
       }
     ],
-    "roleMap": [
-      {
-        "role": "MASTER",
-        "userUUID": "efb43682-703d-4dae-9853-f397c8625d96"
-      },
-      {
-        "role": "WRITER",
-        "userUUID": "662bf3e6-a5cc-499f-a642-a31e89289168"
-      }
+    "roleMap": [],
+    "id": "6ec4fa08-9062-48bb-992a-8b39ab2bd419",
+    "projectName": "Awesome Project",
+    "taskIDs": [
+      "babf9e9b-a5da-4330-8699-4a2f043f17a0",
+      "f0b62a92-6251-401a-84f6-52ac4894a3b2"
     ]
+  },
+  {
+    "comments": [],
+    "roleMap": [],
+    "id": "0bb05444-ff02-49ef-aeb5-2d8ddbc259af",
+    "projectName": "New Project",
+    "taskIDs": []
   }
 ]

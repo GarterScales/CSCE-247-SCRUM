@@ -93,23 +93,30 @@ public class DataWriter extends DataConstants {
         ArrayList<Task> tasks = project.getTasks();
         JSONArray tasksJSON = new JSONArray();
 
-        for (Task task : tasks) {
-            tasksJSON.add(getTaskIDObject(task));
+        if (!tasks.isEmpty()) {
+            for (Task task : tasks) {
+                tasksJSON.add(task.getID().toString());
+            }
         }
+        projectDetails.put(TASK_IDS, tasksJSON);
 
         ArrayList<Comment> comments = project.getComments();
         JSONArray commentsJSON = new JSONArray();
 
-        for (Comment comment : comments) {
-            commentsJSON.add(getCommentJSON(comment));
+        if (!comments.isEmpty()) {
+            for (Comment comment : comments) {
+                commentsJSON.add(getCommentJSON(comment));
+            }
         }
         projectDetails.put(COMMENTS, commentsJSON);
 
         JSONArray rolesJSON = new JSONArray();
         HashMap<UserRoleEnum, User> roleMap = project.getRoleMap();
-        for (Map.Entry<UserRoleEnum, User> entry : roleMap.entrySet()) {
-            rolesJSON.add(getRoleObject(entry));
+        if (roleMap.isEmpty()) {
+            for (Map.Entry<UserRoleEnum, User> entry : roleMap.entrySet()) {
+                rolesJSON.add(getRoleObject(entry));
 
+            }
         }
         projectDetails.put(ROLE_MAP, rolesJSON);
 
@@ -121,24 +128,21 @@ public class DataWriter extends DataConstants {
         commentDetails.put(COMMENTER_ID, comment.getCommenter().getId().toString());
         commentDetails.put(CONTENT, comment.getContent());
         commentDetails.put(DATE, comment.getDate().toString());
-        for (Comment reply : comment.getReplies()) {
-            commentDetails.put(REPLIES, getCommentJSON(reply));
-        }
 
+        JSONArray jsonComments = new JSONArray();
+
+        for (Comment reply : comment.getReplies()) {
+            jsonComments.add(getCommentJSON(reply));
+        }
+        commentDetails.put(REPLIES, jsonComments);
         return commentDetails;
     }
 
     public static JSONObject getRoleObject(Map.Entry<UserRoleEnum, User> entry) {
         JSONObject roleObject = new JSONObject();
-        roleObject.put(ROLE, entry.getKey());
-        roleObject.put(USER_ID, entry.getValue());
+        roleObject.put(ROLE, entry.getKey().toString());
+        roleObject.put(USER_ID, entry.getValue().getId().toString());
         return roleObject;
-    }
-
-    public static JSONObject getTaskIDObject(Task task) {
-        JSONObject taskIDObject = new JSONObject();
-        taskIDObject.put(TASK_ID, task.getID().toString());
-        return taskIDObject;
     }
 
     public static JSONObject getTaskObject(Task task) {
@@ -174,7 +178,7 @@ public class DataWriter extends DataConstants {
         JSONObject logObject = new JSONObject();
         logObject.put(LOG_DATE, log.getDate().toString());
         logObject.put(LOG_USER_ID, log.getUser().getId().toString());
-        logObject.put(LOG_ENUM, log.getType());
+        logObject.put(LOG_ENUM, log.getType().toString());
         logObject.put(LOG_REASON, log.getReason());
         return logObject;
     }

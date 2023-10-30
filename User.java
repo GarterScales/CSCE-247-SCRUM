@@ -88,7 +88,7 @@ public class User {
     }
 
     public String toString() {
-        return "\nID: " + this.id + "\nFirst Name: " + this.firstName + "\nLast Name: " + this.lastName +
-                "\nEmail: " + this.email + "\nUsername: " + this.username + "\nPassword: " + this.password;
+        return "\n\tID: " + this.id + "\n\tFirst Name: " + this.firstName + "\n\tLast Name: " + this.lastName +
+                "\n\tEmail: " + this.email + "\n\tUsername: " + this.username + "\n\tPassword: " + this.password;
     }
 }

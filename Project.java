@@ -126,7 +126,7 @@ public class Project {
     }
 
     public String toString() {
-        String returnString = "Project Name: " + this.projectName + "\nProject ID: " + this.id + "\nColumn List: ";
+        String returnString = "\n\nProject Name: " + this.projectName + "\nProject ID: " + this.id;
         if (taskList != null) {
             for (Task task : taskList) {
                 returnString += task.toString();
@@ -137,9 +137,9 @@ public class Project {
                 returnString += comment.toString();
             }
         }
-        if (roleMap != null) {
+        if (roleMap != null && !roleMap.isEmpty()) {
             for (HashMap.Entry<UserRoleEnum, User> entry : roleMap.entrySet()) {
-                returnString += "\nRole: " + entry.getKey() + "\nUser: " + entry.getValue().toString();
+                returnString += "\nRole: " + entry.getKey().toString() + "\nUser: " + entry.getValue().toString();
             }
         }
 

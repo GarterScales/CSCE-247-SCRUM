@@ -82,6 +82,7 @@ public class UI {
             // add and/or remove projects
             System.out.println("Would you like to 1. add or 2. remove");
             int addRemove = keyboard.nextInt();
+            keyboard.nextLine();
             if (addRemove == 1) {
                 // add project
                 System.out.println("Enter the name of the project you would like to add");
@@ -98,6 +99,7 @@ public class UI {
 
             System.out.println("Which project would you like to view?");
             int projectView = keyboard.nextInt();
+            keyboard.nextLine();
 
             if (projectView > 0 && projectView <= projects.size()) {
                 // user views selected project

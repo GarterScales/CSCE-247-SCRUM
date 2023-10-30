@@ -22,7 +22,7 @@ public abstract class Task {
 
   public Task(UUID id, String name, String content, int priority, Log log, int hoursToComplete, UUID userID,
       ArrayList<Comment> comments, int pointValue) {
-    setId(userID);
+    setId(id);
     setName(name);
     setTaskContent(content);
     setPriority(priority);
