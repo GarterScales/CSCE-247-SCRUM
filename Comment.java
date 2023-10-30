@@ -22,7 +22,7 @@ public class Comment {
         return this.commenter;
     }
 
-    public String getContent(String comment) {
+    public String getContent() {
         return this.content;
     }
 
@@ -30,7 +30,7 @@ public class Comment {
         return this.date;
     }
 
-    public ArrayList<Comment> getReplies(ArrayList<Comment> replies) {
+    public ArrayList<Comment> getReplies() {
         return this.replies;
     }
 
