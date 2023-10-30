@@ -1,5 +1,5 @@
 /**
- * Contains constants for data related fields and file names
+ * Defines constants for data related fields
  */
 public class DataConstants {
   // USER
