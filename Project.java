@@ -3,32 +3,32 @@ import java.util.HashMap;
 import java.util.UUID;
 
 public class Project {
-    private ArrayList<Column> columnList;
     private ArrayList<Comment> comments;
     private HashMap<UserRoleEnum, User> roleMap;
     private String projectName;
     private UUID id;
+    private ArrayList<Task> taskList;
 
     public Project(String projectName) {
         setName(projectName);
         genUUID();
-        columnList = createColumnList();
         comments = new ArrayList<Comment>();
         roleMap = new HashMap<UserRoleEnum, User>();
         roleMap.put(UserRoleEnum.MASTER, SystemFACADE.currentUser);
+        taskList = new ArrayList<Task>();
     }
 
-    public Project(UUID id, String projectName, ArrayList<Column> columnList, ArrayList<Comment> comments,
+    public Project(UUID id, String projectName, ArrayList<Task> taskList, ArrayList<Comment> comments,
             HashMap<UserRoleEnum, User> roleMap) {
         setId(id);
         setName(projectName);
-        this.columnList = columnList;
         setComments(comments);
         setRoleMap(roleMap);
+        this.taskList = taskList;
     }
 
     public ArrayList<Task> getTasks() {
-        return new ArrayList<Task>();
+        return this.taskList;
     }
 
     // we need to think about creating the log
@@ -37,19 +37,20 @@ public class Project {
             int pointValue, String type) {
         switch (type) {
             case "design":
-                getColumnType(log).add(new DesignTask(name, content, priority, log, hoursToComplete, userID, pointValue)); //need new overloaded constructor for all 4
+                // need new overloaded constructor for all 4
+                taskList.add(new DesignTask(name, content, priority, log, hoursToComplete, userID, pointValue));
                 break;
 
             case "documentation":
-            getColumnType(log).add(new DocumentationTask(name, content, priority, log, hoursToComplete, userID, pointValue));
+                taskList.add(new DocumentationTask(name, content, priority, log, hoursToComplete, userID, pointValue));
                 break;
 
             case "bug":
-            getColumnType(log).add(new BugTask(name, content, priority, log, hoursToComplete, userID, pointValue));
+                taskList.add(new BugTask(name, content, priority, log, hoursToComplete, userID, pointValue));
                 break;
 
             case "new feature":
-            getColumnType(log).add(new NewFeatureTask(name, content, priority, log, hoursToComplete, userID, pointValue));
+                taskList.add(new NewFeatureTask(name, content, priority, log, hoursToComplete, userID, pointValue));
                 break;
 
             default:
@@ -57,31 +58,12 @@ public class Project {
         }
     }
 
-    public ArrayList<Task> getColumnType(Log log) {
-        int columnNum = 0;
-        
-        switch (log.logEnum) {
-            case BACKLOG:
-                columnNum = 0;
-                break;
-
-            case TODO:
-                columnNum = 1;
-                break;
-
-            case INPROGRESS:
-            columnNum = 2;
-                break;
-
-            case COMPLETE:
-            columnNum = 3;
-                break;
-
-            default:
-                break;
+    public void removeTask(UUID taskID) {
+        for (int i = 0; i < taskList.size(); i++) {
+            if (taskList.get(i).getID() == taskID) {
+                taskList.remove(i);
+            }
         }
-
-        return columnList.get(columnNum).getTasks();
     }
 
     public void addUser(UserRoleEnum role, User user) {
@@ -143,22 +125,11 @@ public class Project {
         return roleMap;
     }
 
-    public ArrayList<Column> createColumnList() {
-        columnList = new ArrayList<Column>();
-
-        columnList.add(new Column(new ArrayList<Task>(), LogEnum.BACKLOG));
-        columnList.add(new Column(new ArrayList<Task>(), LogEnum.TODO));
-        columnList.add(new Column(new ArrayList<Task>(), LogEnum.INPROGRESS));
-        columnList.add(new Column(new ArrayList<Task>(), LogEnum.COMPLETE));
-
-        return columnList;
-    }
-
     public String toString() {
         String returnString = "Project Name: " + this.projectName + "\nProject ID: " + this.id + "\nColumn List: ";
-        if (columnList != null) {
-            for (Column column : columnList) {
-                returnString += column.toString();
+        if (taskList != null) {
+            for (Task task : taskList) {
+                returnString += task.toString();
             }
         }
         if (comments != null) {

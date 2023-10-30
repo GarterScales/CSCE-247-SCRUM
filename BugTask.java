@@ -17,9 +17,14 @@ public class BugTask extends Task {
         super(id, name, content, priority, log, hoursToComplete, userID, comments, pointValue);
     }
 
-    public BugTask(String name, String content, int priority, Log log, int hoursToComplete, UUID userID, int pointValue) {
+    public BugTask(String name, String content, int priority, Log log, int hoursToComplete, UUID userID,
+            int pointValue) {
         super(name, content, priority, log, hoursToComplete, userID, pointValue);
-       
+
+    }
+
+    public String getTaskType() {
+        return "BugTask";
     }
 
     public String getReproductionSteps() {

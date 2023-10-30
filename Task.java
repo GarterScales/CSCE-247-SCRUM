@@ -13,18 +13,25 @@ public abstract class Task {
   private UUID userId;
   private int pointValue;
   private boolean inSprint = false;
+  private String toDesign;
+  private String toDocument;
+  private String reproductionSteps;
+  private String bugEffect;
+  private String justification;
+  private String intention;
 
   public Task(UUID id, String name, String content, int priority, Log log, int hoursToComplete, UUID userID,
       ArrayList<Comment> comments, int pointValue) {
-        setId(userID);
-        setName(name);
-        setTaskContent(content);
-        setPriority(priority);
-        setLog(log);
-        setHoursToComplete(hoursToComplete);
-        setUserId(userID);;
-        setComments(comments);
-        setPointValue(pointValue);
+    setId(userID);
+    setName(name);
+    setTaskContent(content);
+    setPriority(priority);
+    setLog(log);
+    setHoursToComplete(hoursToComplete);
+    setUserId(userID);
+    ;
+    setComments(comments);
+    setPointValue(pointValue);
   }
 
   public Task(String name, String content, int priority, Log log, int hoursToComplete, UUID userID, int pointValue) {
@@ -37,6 +44,8 @@ public abstract class Task {
     setPriority(priority);
     setPointValue(pointValue);
   }
+
+  public abstract String getTaskType();
 
   public void toggleSprint() {
     this.inSprint = !this.inSprint;
@@ -71,11 +80,11 @@ public abstract class Task {
   }
 
   public int getHoursToComplete() {
-      return hoursToComplete;
+    return hoursToComplete;
   }
 
   public void setHoursToComplete(int hoursToComplete) {
-      this.hoursToComplete = hoursToComplete;
+    this.hoursToComplete = hoursToComplete;
   }
 
   public UUID getUserId() {
@@ -87,19 +96,19 @@ public abstract class Task {
   }
 
   public Log getLog() {
-      return log;
+    return log;
   }
 
   public void setLog(Log log) {
-      this.log = log;
+    this.log = log;
   }
 
   public ArrayList<Comment> getComments() {
-      return comments;
+    return comments;
   }
 
   public void setComments(ArrayList<Comment> comments) {
-      this.comments = comments;
+    this.comments = comments;
   }
 
   public int getPointValue() {
@@ -116,19 +125,43 @@ public abstract class Task {
     while (x) {
       if (ProjectList.getInstance().checkIDAvailability(tempID)) {
         this.id = tempID;
-          x = false;
+        x = false;
       } else {
-          tempID = UUID.randomUUID();
+        tempID = UUID.randomUUID();
       }
     }
   }
 
   public void setId(UUID id) {
-      this.id = id;
+    this.id = id;
   }
 
   public UUID getID() {
     return id;
+  }
+
+  public String getToDesign() {
+    return this.toDesign;
+  }
+
+  public String getToDocument() {
+    return this.toDocument;
+  }
+
+  public String getReproductionSteps() {
+    return this.reproductionSteps;
+  }
+
+  public String getBugEffect() {
+    return this.bugEffect;
+  }
+
+  public String getJustification() {
+    return this.justification;
+  }
+
+  public String getIntention() {
+    return this.intention;
   }
 
   public String toString() {

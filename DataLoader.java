@@ -35,6 +35,13 @@ public class DataLoader extends DataConstants {
 					UUID userID = UUID.fromString((String) taskJSON.get(TASK_USER_ID));
 					int pointValue = (int) (long) taskJSON.get(POINT_VALUE);
 
+					String toDesign = (String) taskJSON.get(TO_DESIGN);
+					String toDocument = (String) taskJSON.get(TO_DOCUMENT);
+					String reproductionSteps = (String) taskJSON.get(REPRODUCTION_STEPS);
+					String bugEffect = (String) taskJSON.get(BUG_EFFECT);
+					String justification = (String) taskJSON.get(JUSTIFICATION);
+					String intention = (String) taskJSON.get(INTENTION);
+
 					JSONObject logObject = (JSONObject) taskJSON.get(LOG);
 					UUID logUserUUID = UUID.fromString((String) logObject.get(LOG_USER_ID));
 					LogEnum logEnum = LogEnum.valueOf((String) logObject.get(LOG_ENUM));
@@ -54,23 +61,21 @@ public class DataLoader extends DataConstants {
 					}
 
 					switch ((String) taskJSON.get(TASK_TYPE)) {
-						// will need to add custom elements of these classes to the JSON and load them
-						// here
 						case "BugTask":
 							tasks.add((Task) (new BugTask(id, taskName, content, priority, log, hoursToComplete, userID, comments,
-									pointValue)));
+									pointValue, reproductionSteps, bugEffect)));
 							break;
 						case "DesignTask":
 							tasks.add((Task) (new DesignTask(id, taskName, content, priority, log, hoursToComplete, userID, comments,
-									pointValue)));
+									pointValue, toDesign)));
 							break;
 						case "NewFeatureTask":
 							tasks.add((Task) (new NewFeatureTask(id, taskName, content, priority, log, hoursToComplete, userID,
-									comments, pointValue)));
+									comments, pointValue, justification, intention)));
 							break;
 						case "DocumentationTask":
-							tasks.add((Task) (new NewFeatureTask(id, taskName, content, priority, log, hoursToComplete, userID,
-									comments, pointValue)));
+							tasks.add((Task) (new DocumentationTask(id, taskName, content, priority, log, hoursToComplete, userID,
+									comments, pointValue, toDocument)));
 							break;
 					}
 				}
@@ -120,30 +125,21 @@ public class DataLoader extends DataConstants {
 					UUID id = UUID.fromString((String) projectJSON.get(PROJECT_ID));
 					String projectName = (String) projectJSON.get(PROJECT_NAME);
 
-					JSONArray columnsJSON = (JSONArray) projectJSON.get(COLUMN_LIST);
-					ArrayList<Column> columns = new ArrayList<>();
-
-					for (Object column : columnsJSON) {
-						JSONObject columnJSON = (JSONObject) column;
-						LogEnum columnName = LogEnum.valueOf((String) columnJSON.get(COLUMN_NAME));
-						JSONArray tasksIDsJSON = (JSONArray) projectJSON.get(TASK_IDS);
-						ArrayList<Task> tasks = new ArrayList<>();
-						if (tasksIDsJSON != null) {
-							for (Object taskID : tasksIDsJSON) {
-								JSONObject taskIDJSON = (JSONObject) taskID;
-								UUID taskUuid = UUID.fromString((String) taskIDJSON.get(TASK_ID));
-								if (!taskList.isEmpty()) {
-									for (Task task : taskList) {
-										if (task.getID() == taskUuid) {
-											tasks.add(task);
-											break;
-										}
+					JSONArray tasksIDsJSON = (JSONArray) projectJSON.get(TASK_IDS);
+					ArrayList<Task> tasks = new ArrayList<>();
+					if (tasksIDsJSON != null) {
+						for (Object taskID : tasksIDsJSON) {
+							JSONObject taskIDJSON = (JSONObject) taskID;
+							UUID taskUuid = UUID.fromString((String) taskIDJSON.get(TASK_ID));
+							if (!taskList.isEmpty()) {
+								for (Task task : taskList) {
+									if (task.getID() == taskUuid) {
+										tasks.add(task);
+										break;
 									}
 								}
 							}
 						}
-
-						columns.add(new Column(tasks, columnName));
 					}
 
 					JSONArray commentsJSON = (JSONArray) projectJSON.get(COMMENTS);
@@ -169,7 +165,7 @@ public class DataLoader extends DataConstants {
 						}
 					}
 
-					projects.add((Project) (new Project(id, projectName, columns, comments, roleMap)));
+					projects.add((Project) (new Project(id, projectName, taskList, comments, roleMap)));
 				}
 			}
 

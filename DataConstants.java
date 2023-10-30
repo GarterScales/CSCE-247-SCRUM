@@ -12,8 +12,6 @@ public class DataConstants {
   protected static final String PROJECT_FILE_NAME = "JSON/projectList.json";
   protected static final String PROJECT_ID = "id";
   protected static final String PROJECT_NAME = "projectName";
-  protected static final String COLUMN_LIST = "columnList";
-  protected static final String COLUMN_NAME = "columnName";
   protected static final String TASK_IDS = "taskIDs";
   protected static final String ROLE_MAP = "roleMap";
   protected static final String ROLE = "role";
@@ -41,4 +39,10 @@ public class DataConstants {
   protected static final String HOURS = "hoursToComplete";
   protected static final String TASK_USER_ID = "userID";
   protected static final String POINT_VALUE = "pointValue";
+  protected static final String TO_DESIGN = "toDesign";
+  protected static final String TO_DOCUMENT = "toDocument";
+  protected static final String REPRODUCTION_STEPS = "reproductionSteps";
+  protected static final String BUG_EFFECT = "bugEffect";
+  protected static final String JUSTIFICATION = "justification";
+  protected static final String INTENTION = "intention";
 }
