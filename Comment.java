@@ -15,7 +15,7 @@ public class Comment {
     }
 
     public void removeComment(Comment comment) {
-
+        replies.remove(comment);
     }
 
     public User getCommenter() {
@@ -27,7 +27,7 @@ public class Comment {
     }
 
     public void addReply(Comment reply) {
-
+        replies.add(reply);
     }
 
     public ArrayList<Comment> displayReplies() {
