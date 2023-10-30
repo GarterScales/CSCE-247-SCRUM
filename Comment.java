@@ -22,8 +22,16 @@ public class Comment {
         return this.commenter;
     }
 
+    public String getCommentContent(String commentComment) {
+        return this.commentContent;
+    }
+
     public LocalDate getDate() {
         return this.date;
+    }
+
+    public ArrayList<Comment> getReplies(ArrayList<Comment> replies) {
+        return this.replies;
     }
 
     public void addReply(Comment reply) {
