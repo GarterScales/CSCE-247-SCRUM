@@ -8,13 +8,26 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+/**
+ * Responsible for loading data from JSON files
+ */
 public class DataLoader extends DataConstants {
 
+	/**
+	 * Main method to run data loading process
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		UI ui = new UI();
 		ui.runPrintData();
 	}
 
+	/**
+	 * Get list of tasks from JSON file and convert them to Java objects
+	 * 
+	 * @return an ArrayList of Task objects
+	 */
 	public static ArrayList<Task> getTasks() {
 		UserList userList = UserList.getInstance();
 		ArrayList<Task> tasks = new ArrayList<Task>();
@@ -62,19 +75,23 @@ public class DataLoader extends DataConstants {
 
 					switch ((String) taskJSON.get(TASK_TYPE)) {
 						case "BugTask":
-							tasks.add((Task) (new BugTask(id, taskName, content, priority, log, hoursToComplete, userID, comments,
+							tasks.add((Task) (new BugTask(id, taskName, content, priority, log, hoursToComplete, userID,
+									comments,
 									pointValue, reproductionSteps, bugEffect)));
 							break;
 						case "DesignTask":
-							tasks.add((Task) (new DesignTask(id, taskName, content, priority, log, hoursToComplete, userID, comments,
+							tasks.add((Task) (new DesignTask(id, taskName, content, priority, log, hoursToComplete,
+									userID, comments,
 									pointValue, toDesign)));
 							break;
 						case "NewFeatureTask":
-							tasks.add((Task) (new NewFeatureTask(id, taskName, content, priority, log, hoursToComplete, userID,
+							tasks.add((Task) (new NewFeatureTask(id, taskName, content, priority, log, hoursToComplete,
+									userID,
 									comments, pointValue, justification, intention)));
 							break;
 						case "DocumentationTask":
-							tasks.add((Task) (new DocumentationTask(id, taskName, content, priority, log, hoursToComplete, userID,
+							tasks.add((Task) (new DocumentationTask(id, taskName, content, priority, log,
+									hoursToComplete, userID,
 									comments, pointValue, toDocument)));
 							break;
 					}
@@ -90,6 +107,12 @@ public class DataLoader extends DataConstants {
 		return null;
 	}
 
+	/**
+	 * Parse a JSON object to create a Comment
+	 * 
+	 * @param commentJSON The JSON object representing a comment
+	 * @return A Comment
+	 */
 	public static Comment parseComment(JSONObject commentJSON) {
 
 		UUID commenterID = UUID.fromString((String) commentJSON.get(COMMENTER_ID));
@@ -110,6 +133,11 @@ public class DataLoader extends DataConstants {
 		return new Comment(userList.getUserbyId(commenterID), content, date, replies);
 	}
 
+	/**
+	 * Get list of projects from JSON file and convert them to Java objects
+	 * 
+	 * @return ArrayList of Project objects
+	 */
 	public static ArrayList<Project> getProjects() {
 		UserList userList = UserList.getInstance();
 		ArrayList<Project> projects = new ArrayList<Project>();
@@ -173,6 +201,11 @@ public class DataLoader extends DataConstants {
 		}
 	}
 
+	/**
+	 * Get list of users from JSON file and convert them to Java objects
+	 * 
+	 * @return An ArrayList of User objects
+	 */
 	public static ArrayList<User> getUsers() {
 		ArrayList<User> users = new ArrayList<User>();
 
