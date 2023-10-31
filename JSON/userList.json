@@ -22,5 +22,21 @@
     "id": "9781d709-986b-4062-82a6-5470569d2230",
     "email": "cscruggs@gmail.com",
     "username": "cscruggs"
+  },
+  {
+    "firstName": "Atticus",
+    "lastName": "Madden",
+    "password": "toKillaM0",
+    "id": "ac7dde12-f50c-4c3e-baf0-85268de6d5b0",
+    "email": "amadden@mock.com",
+    "username": "aMadden"
+  },
+  {
+    "firstName": "Jeff",
+    "lastName": "Goldblum",
+    "password": "mu5tgofa5Ter",
+    "id": "453eba52-95be-4bd8-9d07-1aca5dc3021a",
+    "email": "jgold@goldmail.com",
+    "username": "flyGuy"
   }
 ]
