@@ -9,6 +9,11 @@ public class Project {
     private UUID id;
     private ArrayList<Task> taskList;
 
+    /**
+     * A method that creates a project object
+     * 
+     * @param projectName
+     */
     public Project(String projectName) {
         setName(projectName);
         genUUID();
@@ -18,6 +23,15 @@ public class Project {
         taskList = new ArrayList<Task>();
     }
 
+    /**
+     * A method that creates a prject object with additional parameters
+     * 
+     * @param id
+     * @param projectName
+     * @param taskList
+     * @param comments
+     * @param roleMap
+     */
     public Project(UUID id, String projectName, ArrayList<Task> taskList, ArrayList<Comment> comments,
             HashMap<UserRoleEnum, User> roleMap) {
         setId(id);
@@ -27,12 +41,27 @@ public class Project {
         this.taskList = taskList;
     }
 
+    /**
+     * A method that gets task
+     * 
+     * @return
+     */
     public ArrayList<Task> getTasks() {
         return this.taskList;
     }
 
-    // we need to think about creating the log
-    // fill this oout
+    /**
+     * A method that adds a task
+     * 
+     * @param name
+     * @param content
+     * @param priority
+     * @param log
+     * @param hoursToComplete
+     * @param userID
+     * @param pointValue
+     * @param type
+     */
     public void addTask(String name, String content, int priority, Log log, int hoursToComplete, UUID userID,
             int pointValue, String type) {
         switch (type) {
@@ -58,6 +87,11 @@ public class Project {
         }
     }
 
+    /**
+     * A method that removes a task
+     * 
+     * @param taskID
+     */
     public void removeTask(UUID taskID) {
         for (int i = 0; i < taskList.size(); i++) {
             if (taskList.get(i).getID() == taskID) {
@@ -66,28 +100,55 @@ public class Project {
         }
     }
 
+    /**
+     * A method that adds a user
+     * 
+     * @param role
+     * @param user
+     */
     public void addUser(UserRoleEnum role, User user) {
         roleMap.put(role, user);
     }
 
+    /**
+     * A method that adds a comment
+     * 
+     * @param comment
+     */
     public void addComment(Comment comment) {
         comments.add(comment);
     }
 
+    /**
+     * A method that displays comments
+     */
     public void displayComments() {
         for (Comment comment : comments) {
             comment.toString();
         }
     }
 
+    /**
+     * Setter for name
+     * 
+     * @param name
+     */
     public void setName(String name) {
         this.projectName = name;
     }
 
+    /**
+     * Getter for name
+     * 
+     * @return a projectname
+     */
     public String getName() {
         return this.projectName;
     }
 
+    /**
+     * A method that generates a UUID
+     */
     private void genUUID() {
         UUID tempID = UUID.randomUUID();
         boolean x = true;
@@ -101,30 +162,63 @@ public class Project {
         }
     }
 
+    /**
+     * Setter for id
+     * 
+     * @param id
+     */
     public void setId(UUID id) {
         this.id = id;
     }
 
+    /**
+     * Getter for id
+     * 
+     * @return an id
+     */
     public UUID getId() {
         return id;
     }
 
+    /**
+     * Setter for comments
+     * 
+     * @param comments
+     */
     public void setComments(ArrayList<Comment> comments) {
         this.comments = comments;
     }
 
+    /**
+     * Getter for comments
+     * 
+     * @return a comments
+     */
     public ArrayList<Comment> getComments() {
         return comments;
     }
 
+    /**
+     * Setter for rolemap
+     * 
+     * @param roleMap
+     */
     public void setRoleMap(HashMap<UserRoleEnum, User> roleMap) {
         this.roleMap = roleMap;
     }
 
+    /**
+     * Getter for rolemap
+     * 
+     * @return a rolemap
+     */
     public HashMap<UserRoleEnum, User> getRoleMap() {
         return roleMap;
     }
 
+    /**
+     * Tostring method for project
+     */
     public String toString() {
         String returnString = "\n\nProject Name: " + this.projectName + "\nProject ID: " + this.id;
         if (taskList != null) {
