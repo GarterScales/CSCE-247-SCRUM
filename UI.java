@@ -1,5 +1,7 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class UI {
     private SystemFACADE systemFacade;
@@ -59,6 +61,43 @@ public class UI {
 
     public void runPrintData() {
         ProjectList projectList = ProjectList.getInstance();
+        System.out.println(projectList.ProjectBoard());
+    }
+
+    public void runScenarioOne() {
+        ProjectList projectList = ProjectList.getInstance();
+        System.out.println(projectList.ProjectBoard());
+        UserList userList = UserList.getInstance();
+        SystemFACADE.currentUser = userList.getUserbyId(UUID.fromString("ac7dde12-f50c-4c3e-baf0-85268de"));
+        SystemFACADE.currentProject = projectList
+                .selectProject(UUID.fromString("06a992aa-b849-432f-8730-cf80c1561450"));
+        UUID jeffID = UUID.fromString("453eba52-95be-4bd8-9d07-1aca5dc3021a");
+
+        System.out.println(
+                "Adding a new task \"Initialize super algorithm to detonate at warp speed\". Assigning to Jeff Goldblum");
+        SystemFACADE.currentProject.addTask("Initialize super algorithm to detonate at warp speed", "", 0,
+                new Log(LocalDate.now(), SystemFACADE.currentUser, LogEnum.TODO), 0,
+                jeffID, 0, "NewFeatureTask");
+        System.out.println("Adding Comment to Curve Metal Task");
+        Task metalTask = SystemFACADE.currentProject
+                .getTaskbyId(jeffID);
+        metalTask
+                .addComment(new Comment(SystemFACADE.currentUser, "Avoid civilians in Jeff", LocalDate.now(), null));
+        System.out.println("Moving metal task to in progress");
+        metalTask
+                .getLog().reverseLog(LocalDate.now(), SystemFACADE.currentUser, "Not cylindrical");
+        System.out.println("Replying to Jeff's Comment.");
+        for (Comment comment : metalTask.getComments()) {
+            if (comment.getCommenter() == userList.getUserbyId(jeffID)) {
+                comment.addReply(
+                        new Comment(SystemFACADE.currentUser, "How about you do it jeff", LocalDate.now(), null));
+                break;
+            }
+        }
+        System.out.println("Reassigning metal task");
+        metalTask.setUserId(jeffID);
+
+        System.out.println("Results:");
         System.out.println(projectList.ProjectBoard());
     }
 

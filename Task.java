@@ -82,6 +82,10 @@ public abstract class Task {
     this.inSprint = !this.inSprint;
   }
 
+  public void addComment(Comment comment) {
+    this.comments.add(comment);
+  }
+
   /**
    * Getter for insprint
    * 
@@ -249,6 +253,10 @@ public abstract class Task {
         tempID = UUID.randomUUID();
       }
     }
+  }
+
+  public UUID getId() {
+    return this.id;
   }
 
   /**
