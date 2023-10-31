@@ -19,7 +19,7 @@ public class DocumentationTask extends Task {
      * @param userID          Identifier of the user assigned to the task
      * @param comments        List of comments associated with the task
      * @param pointValue      Point value of the task
-     * @param toDocument
+     * @param toDocument      Additional attribute specific to DocumentationTask
      */
     public DocumentationTask(UUID id, String name, String content, int priority, Log log, int hoursToComplete,
             UUID userID, ArrayList<Comment> comments, int pointValue, String toDocument) {
