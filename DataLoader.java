@@ -20,7 +20,7 @@ public class DataLoader extends DataConstants {
 	 */
 	public static void main(String[] args) {
 		UI ui = new UI();
-		ui.runPrintData();
+		ui.runScenarioOne();
 	}
 
 	/**

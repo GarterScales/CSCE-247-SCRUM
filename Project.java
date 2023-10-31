@@ -50,6 +50,15 @@ public class Project {
         return this.taskList;
     }
 
+    public Task getTaskbyId(UUID id) {
+        for (Task task : this.taskList) {
+            if (id.equals(task.getId())) {
+                return task;
+            }
+        }
+        return null;
+    }
+
     /**
      * A method that adds a task
      * 
