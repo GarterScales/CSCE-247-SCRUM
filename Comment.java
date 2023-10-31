@@ -41,12 +41,30 @@ public class Comment {
     }
 
     /**
+     * Setter for commenter
+     * 
+     * @param commenter
+     */
+    public void setCommenter(User commenter) {
+        this.commenter = commenter;
+    }
+
+    /**
      * Getter for content
      * 
      * @return a content
      */
     public String getContent() {
         return this.content;
+    }
+
+    /**
+     * Setter for content
+     * 
+     * @param content
+     */
+    public void setContent(String content) {
+        this.content = content;
     }
 
     /**
@@ -59,12 +77,30 @@ public class Comment {
     }
 
     /**
+     * Setter for date
+     * 
+     * @param date
+     */
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    /**
      * Getter for replies
      * 
      * @return replies
      */
     public ArrayList<Comment> getReplies() {
         return this.replies;
+    }
+
+    /**
+     * Setter for replies
+     * 
+     * @param replies
+     */
+    public void setReplies(ArrayList<Comment> replies) {
+        this.replies = replies;
     }
 
     /**
