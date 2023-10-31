@@ -222,8 +222,14 @@ public class Project {
     public String toString() {
         String returnString = "\n\nProject Name: " + this.projectName + "\nProject ID: " + this.id;
         if (taskList != null) {
-            for (Task task : taskList) {
-                returnString += task.toString();
+            for (LogEnum logEnum : LogEnum.values()) {
+                returnString += "\n" + logEnum.toString();
+                for (Task task : taskList) {
+                    if (task.getLog().getType() == logEnum) {
+                        returnString += task.toString();
+                    }
+                }
+                returnString += "\n";
             }
         }
         if (comments != null) {
