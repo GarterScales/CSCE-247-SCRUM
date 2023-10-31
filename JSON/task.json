@@ -1,8 +1,8 @@
 [
   {
     "id": "babf9e9b-a5da-4330-8699-4a2f043f17a0",
-    "name": "Task 1",
-    "taskContent": "Complete new feature",
+    "name": "Curve the metal to make a cylindrical shape",
+    "taskContent": "",
     "priority": 1,
     "type": "NewFeatureTask",
     "log": {
@@ -16,7 +16,13 @@
     "comments": [
       {
         "commenterUUID": "efb43682-703d-4dae-9853-f397c8625d96",
-        "content": "Fix issue on line 25.",
+        "content": "Not cylindrical enough",
+        "date": "2023-10-06",
+        "replies": []
+      },
+      {
+        "commenterUUID": "efb43682-703d-4dae-9853-f397c8625d96",
+        "content": "What's a cylinder",
         "date": "2023-10-06",
         "replies": []
       }
@@ -31,10 +37,10 @@
   },
   {
     "id": "f0b62a92-6251-401a-84f6-52ac4894a3b2",
-    "name": "Task 2",
-    "taskContent": "Fix bug",
+    "name": "Make impossible burger possible",
+    "taskContent": "",
     "priority": 3,
-    "type": "BugTask",
+    "type": "NewFeatureTask",
     "log": {
       "date": "2023-10-05",
       "userID": "efb43682-703d-4dae-9853-f397c8625d96",
@@ -45,6 +51,29 @@
     "userID": "662bf3e6-a5cc-499f-a642-a31e89289168",
     "comments": [],
     "pointValue": 1,
+    "toDesign": "",
+    "toDocument": "",
+    "reproductionSteps": "",
+    "bugEffect": "",
+    "justification": "",
+    "intention": ""
+  },
+  {
+    "id": "babf9e9b-a5da-4330-8699-4a2f043f17a0",
+    "name": "Avoid civilians Jeff!",
+    "taskContent": "",
+    "priority": 1,
+    "type": "NewFeatureTask",
+    "log": {
+      "date": "2023-10-05",
+      "userID": "efb43682-703d-4dae-9853-f397c8625d96",
+      "logType": "TODO",
+      "reason": ""
+    },
+    "hoursToComplete": 2,
+    "userID": "efb43682-703d-4dae-9853-f397c8625d96",
+    "comments": [],
+    "pointValue": 2,
     "toDesign": "",
     "toDocument": "",
     "reproductionSteps": "",
