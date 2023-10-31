@@ -7,6 +7,14 @@ public class Comment {
     private LocalDate date;
     private ArrayList<Comment> replies;
 
+    /**
+     * A method that creates a comment object
+     * 
+     * @param commenter
+     * @param content
+     * @param date
+     * @param replies
+     */
     public Comment(User commenter, String content, LocalDate date, ArrayList<Comment> replies) {
         this.commenter = commenter;
         this.content = content;
@@ -14,34 +22,72 @@ public class Comment {
         this.replies = replies;
     }
 
+    /**
+     * A method that removes a comment
+     * 
+     * @param comment
+     */
     public void removeComment(Comment comment) {
         replies.remove(comment);
     }
 
+    /**
+     * Getter for commenter
+     * 
+     * @return a commenter
+     */
     public User getCommenter() {
         return this.commenter;
     }
 
+    /**
+     * Getter for content
+     * 
+     * @return a content
+     */
     public String getContent() {
         return this.content;
     }
 
+    /**
+     * Getter for date
+     * 
+     * @return a date
+     */
     public LocalDate getDate() {
         return this.date;
     }
 
+    /**
+     * Getter for replies
+     * 
+     * @return replies
+     */
     public ArrayList<Comment> getReplies() {
         return this.replies;
     }
 
+    /**
+     * A method that adds a reply
+     * 
+     * @param reply
+     */
     public void addReply(Comment reply) {
         replies.add(reply);
     }
 
+    /**
+     * A method that displays replies
+     * 
+     * @return replies
+     */
     public ArrayList<Comment> displayReplies() {
         return this.replies;
     }
 
+    /**
+     * Tostring method for comment
+     */
     public String toString() {
         String returnString = "\nCommenter: " + this.commenter.toString() + "\nComment Content: " +
                 this.content + "\nDate: " + this.date;
