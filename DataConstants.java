@@ -1,3 +1,6 @@
+/**
+ * Defines constants for data related fields
+ */
 public class DataConstants {
   // USER
   protected static final String USER_FILE_NAME = "JSON/userList.json";
