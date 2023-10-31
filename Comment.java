@@ -125,12 +125,12 @@ public class Comment {
      * Tostring method for comment
      */
     public String toString() {
-        String returnString = "\nCommenter: " + this.commenter.toString() + "\nComment Content: " +
-                this.content + "\nDate: " + this.date;
+        String returnString = "\nComment:" + "\n\tCommenter: " + this.commenter.getUserName() + "\n\tComment Content: " +
+                this.content + "\n\tDate: " + this.date;
 
         if (!replies.isEmpty()) {
             for (Comment reply : replies) {
-                returnString += reply.toString();
+                returnString += "\t" + reply.toString();
             }
         }
 
