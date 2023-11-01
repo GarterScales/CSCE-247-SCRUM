@@ -66,6 +66,7 @@ public abstract class Task {
     setUserId(userID);
     setPriority(priority);
     setPointValue(pointValue);
+    this.comments = new ArrayList<Comment>();
   }
 
   /**

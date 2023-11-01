@@ -67,17 +67,19 @@ public class DataWriter extends DataConstants {
     public static void saveTasks() {
         ProjectList projects = ProjectList.getInstance();
         ArrayList<Project> projectList = projects.getProjectList();
-        JSONArray jsonProjects = new JSONArray();
+        JSONArray jsonTasks = new JSONArray();
 
         // creating all the json objects
         for (int i = 0; i < projectList.size(); i++) {
-            jsonProjects.add(getProjectJSON(projectList.get(i)));
+            for (Task task : projectList.get(i).getTasks()) {
+                jsonTasks.add(getTaskJSON(task));
+            }
         }
 
         // Write JSON file
-        try (FileWriter file = new FileWriter(PROJECT_FILE_NAME)) {
+        try (FileWriter file = new FileWriter(TASK_FILE_NAME)) {
 
-            file.write(jsonProjects.toJSONString());
+            file.write(jsonTasks.toJSONString());
             file.flush();
 
         } catch (IOException e) {
@@ -229,5 +231,34 @@ public class DataWriter extends DataConstants {
         logObject.put(LOG_ENUM, log.getType().toString());
         logObject.put(LOG_REASON, log.getReason());
         return logObject;
+    }
+
+    public static JSONObject getTaskJSON(Task task) {
+        JSONObject taskObject = new JSONObject();
+        taskObject.put(TASK_ID, task.getId().toString());
+        taskObject.put(TASK_NAME, task.getName());
+        taskObject.put(TASK_CONTENT, task.getTaskContent());
+        taskObject.put(PRIORITY, task.getPriority());
+        taskObject.put(TASK_TYPE, task.getTaskType());
+        taskObject.put(LOG, getLogObject(task.getLog()));
+        taskObject.put(HOURS, task.getHoursToComplete());
+        taskObject.put(TASK_USER_ID, task.getUserId().toString());
+
+        ArrayList<Comment> comments = task.getComments();
+        JSONArray commentsJSON = new JSONArray();
+
+        for (Comment comment : comments) {
+            commentsJSON.add(getCommentJSON(comment));
+        }
+        taskObject.put(COMMENTS, commentsJSON);
+
+        taskObject.put(POINT_VALUE, task.getPointValue());
+        taskObject.put(TO_DESIGN, task.getToDesign());
+        taskObject.put(TO_DOCUMENT, task.getToDocument());
+        taskObject.put(REPRODUCTION_STEPS, task.getReproductionSteps());
+        taskObject.put(BUG_EFFECT, task.getBugEffect());
+        taskObject.put(JUSTIFICATION, task.getJustification());
+        taskObject.put(INTENTION, task.getIntention());
+        return taskObject;
     }
 }

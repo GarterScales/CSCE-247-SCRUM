@@ -103,8 +103,9 @@ public class Project {
      */
     public void removeTask(UUID taskID) {
         for (int i = 0; i < taskList.size(); i++) {
-            if (taskList.get(i).getID() == taskID) {
+            if (taskList.get(i).getID().equals(taskID)) {
                 taskList.remove(i);
+                System.out.println("tst");
             }
         }
     }

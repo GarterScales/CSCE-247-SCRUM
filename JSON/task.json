@@ -57,28 +57,5 @@
     "bugEffect": "",
     "justification": "",
     "intention": ""
-  },
-  {
-    "id": "babf9e9b-a5da-4330-8699-4a2f043f17a0",
-    "name": "Avoid civilians Jeff!",
-    "taskContent": "",
-    "priority": 1,
-    "type": "NewFeatureTask",
-    "log": {
-      "date": "2023-10-05",
-      "userID": "ac7dde12-f50c-4c3e-baf0-85268de6d5b0",
-      "logType": "TODO",
-      "reason": ""
-    },
-    "hoursToComplete": 2,
-    "userID": "ac7dde12-f50c-4c3e-baf0-85268de6d5b0",
-    "comments": [],
-    "pointValue": 2,
-    "toDesign": "",
-    "toDocument": "",
-    "reproductionSteps": "",
-    "bugEffect": "",
-    "justification": "",
-    "intention": ""
   }
 ]

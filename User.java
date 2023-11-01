@@ -173,7 +173,6 @@ public class User {
      * Tostring method for a User
      */
     public String toString() {
-        return "\n\tID: " + this.id + "\n\tFirst Name: " + this.firstName + "\n\tLast Name: " + this.lastName +
-                "\n\tEmail: " + this.email + "\n\tUsername: " + this.username + "\n\tPassword: " + this.password;
+        return this.username;
     }
 }

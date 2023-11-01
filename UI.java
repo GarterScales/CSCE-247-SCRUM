@@ -68,21 +68,28 @@ public class UI {
         ProjectList projectList = ProjectList.getInstance();
         System.out.println(projectList.ProjectBoard());
         UserList userList = UserList.getInstance();
-        SystemFACADE.currentUser = userList.getUserbyId(UUID.fromString("ac7dde12-f50c-4c3e-baf0-85268de"));
+        SystemFACADE.currentUser = userList.getUserbyId(UUID.fromString("ac7dde12-f50c-4c3e-baf0-85268de6d5b0"));
         SystemFACADE.currentProject = projectList
                 .selectProject(UUID.fromString("06a992aa-b849-432f-8730-cf80c1561450"));
         UUID jeffID = UUID.fromString("453eba52-95be-4bd8-9d07-1aca5dc3021a");
 
         System.out.println(
                 "Adding a new task \"Initialize super algorithm to detonate at warp speed\". Assigning to Jeff Goldblum");
+
         SystemFACADE.currentProject.addTask("Initialize super algorithm to detonate at warp speed", "", 0,
                 new Log(LocalDate.now(), SystemFACADE.currentUser, LogEnum.TODO), 0,
-                jeffID, 0, "NewFeatureTask");
-        System.out.println("Adding Comment to Curve Metal Task");
+                jeffID, 0, "new feature");
+
+        System.out.println("Adding Comment to super algorithm Task");
+
+        SystemFACADE.currentProject
+                .getTasks().get(SystemFACADE.currentProject
+                        .getTasks().size() - 1)
+                .addComment(new Comment(SystemFACADE.currentUser, "Avoid civilians Jeff", LocalDate.now(),
+                        new ArrayList<Comment>()));
+
         Task metalTask = SystemFACADE.currentProject
-                .getTaskbyId(jeffID);
-        metalTask
-                .addComment(new Comment(SystemFACADE.currentUser, "Avoid civilians in Jeff", LocalDate.now(), null));
+                .getTaskbyId(UUID.fromString("babf9e9b-a5da-4330-8699-4a2f043f17a0"));
         System.out.println("Moving metal task to in progress");
         metalTask
                 .getLog().reverseLog(LocalDate.now(), SystemFACADE.currentUser, "Not cylindrical");
@@ -90,15 +97,23 @@ public class UI {
         for (Comment comment : metalTask.getComments()) {
             if (comment.getCommenter() == userList.getUserbyId(jeffID)) {
                 comment.addReply(
-                        new Comment(SystemFACADE.currentUser, "How about you do it jeff", LocalDate.now(), null));
+                        new Comment(SystemFACADE.currentUser, "How about you do it jeff", LocalDate.now(),
+                                new ArrayList<Comment>()));
                 break;
             }
         }
         System.out.println("Reassigning metal task");
         metalTask.setUserId(jeffID);
 
+        System.out.println("Removing Impossible Burger Task");
+
+        SystemFACADE.currentProject
+                .removeTask(UUID.fromString("f0b62a92-6251-401a-84f6-52ac4894a3b2"));
+
         System.out.println("Results:");
         System.out.println(projectList.ProjectBoard());
+        DataWriter.saveTasks();
+        DataWriter.saveProjects();
     }
 
     public void run2() {
