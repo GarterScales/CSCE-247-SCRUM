@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -110,10 +112,18 @@ public class UI {
         SystemFACADE.currentProject
                 .removeTask(UUID.fromString("f0b62a92-6251-401a-84f6-52ac4894a3b2"));
 
-        System.out.println("Results:");
-        System.out.println(projectList.ProjectBoard());
         DataWriter.saveTasks();
         DataWriter.saveProjects();
+
+        // Write JSON file
+        try (FileWriter file = new FileWriter("output.txt")) {
+
+            file.write("Results:\n" + projectList.ProjectBoard());
+            file.flush();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void run2() {
