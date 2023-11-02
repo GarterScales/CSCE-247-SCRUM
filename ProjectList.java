@@ -42,7 +42,9 @@ public class ProjectList {
         String returnString = "";
         if (!projectList.isEmpty()) {
             for (Project project : projectList) {
-                returnString += project.toString();
+                if (project.getRoleMap().containsValue(SystemFACADE.currentUser)) {
+                    returnString += project.toString();
+                }
             }
         }
         return returnString;
