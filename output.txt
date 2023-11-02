@@ -1,0 +1,75 @@
+Results:
+
+
+Project Name: Electric Missiles
+Project ID: 06a992aa-b849-432f-8730-cf80c1561450
+BACKLOG
+
+TODO
+Task Name: Initialize super algorithm to detonate at warp speed
+In Sprint?: false
+Task ID: dced521b-5c0d-4f6d-977b-fe447d82b160
+Task Content: 
+Priority: 0
+Log: 
+Date: 2023-11-01
+User: aMadden
+Log Type: TODO
+Reasonnull
+Hours to Complete: 0
+Assigned User: 453eba52-95be-4bd8-9d07-1aca5dc3021a
+Point Value: 0
+Comment:
+	Commenter: aMadden
+	Comment Content: Avoid civilians Jeff
+	Date: 2023-11-01
+
+INPROGRESS
+Task Name: Curve the metal to make a cylindrical shape
+In Sprint?: false
+Task ID: babf9e9b-a5da-4330-8699-4a2f043f17a0
+Task Content: 
+Priority: 1
+Log: 
+Date: 2023-11-01
+User: aMadden
+Log Type: INPROGRESS
+Hours to Complete: 2
+Assigned User: 453eba52-95be-4bd8-9d07-1aca5dc3021a
+Point Value: 2
+Comment:
+	Commenter: flyGuy
+	Comment Content: Not cylindrical enough
+	Date: 2023-10-06	
+Comment:
+	Commenter: aMadden
+	Comment Content: How about you do it jeff
+	Date: 2023-11-01
+Comment:
+	Commenter: aMadden
+	Comment Content: What's a cylinder
+	Date: 2023-10-06
+
+COMPLETE
+
+
+Project Name: Soap Free Washers
+Project ID: 198999ae-0f4f-4fbc-acd0-7856a6ca93d5
+BACKLOG
+
+TODO
+
+INPROGRESS
+
+COMPLETE
+
+
+Project Name: Air Computers
+Project ID: 7ac8d3d3-3f24-4662-93ca-0e601f003fe0
+BACKLOG
+
+TODO
+
+INPROGRESS
+
+COMPLETE
