@@ -138,7 +138,7 @@ public class DataWriter extends DataConstants {
 
         JSONArray rolesJSON = new JSONArray();
         HashMap<UserRoleEnum, User> roleMap = project.getRoleMap();
-        if (roleMap.isEmpty()) {
+        if (!roleMap.isEmpty()) {
             for (Map.Entry<UserRoleEnum, User> entry : roleMap.entrySet()) {
                 rolesJSON.add(getRoleObject(entry));
 
@@ -179,7 +179,7 @@ public class DataWriter extends DataConstants {
     public static JSONObject getRoleObject(Map.Entry<UserRoleEnum, User> entry) {
         JSONObject roleObject = new JSONObject();
         roleObject.put(ROLE, entry.getKey().toString());
-        roleObject.put(USER_ID, entry.getValue().getId().toString());
+        roleObject.put(ROLE_USER_ID, entry.getValue().getId().toString());
         return roleObject;
     }
 

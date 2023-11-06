@@ -179,7 +179,7 @@ public class DataLoader extends DataConstants {
 					JSONArray roleMapJSON = (JSONArray) projectJSON.get(ROLE_MAP);
 					HashMap<UserRoleEnum, User> roleMap = new HashMap<UserRoleEnum, User>();
 
-					if (roleMapJSON != null) {
+					if (roleMapJSON != null && !roleMapJSON.isEmpty()) {
 						for (Object roleMapping : roleMapJSON) {
 							JSONObject roleMappingJSON = (JSONObject) roleMapping;
 							UserRoleEnum roleEnum = UserRoleEnum.valueOf((String) roleMappingJSON.get(ROLE));

@@ -68,12 +68,12 @@ public class UI {
 
     public void runScenarioOne() {
         ProjectList projectList = ProjectList.getInstance();
-        System.out.println(projectList.ProjectBoard());
         UserList userList = UserList.getInstance();
         SystemFACADE.currentUser = userList.getUserbyId(UUID.fromString("ac7dde12-f50c-4c3e-baf0-85268de6d5b0"));
         SystemFACADE.currentProject = projectList
                 .selectProject(UUID.fromString("06a992aa-b849-432f-8730-cf80c1561450"));
         UUID jeffID = UUID.fromString("453eba52-95be-4bd8-9d07-1aca5dc3021a");
+        System.out.println(projectList.ProjectBoard());
 
         System.out.println(
                 "Adding a new task \"Initialize super algorithm to detonate at warp speed\". Assigning to Jeff Goldblum");
