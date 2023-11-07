@@ -1,5 +1,6 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -12,16 +13,21 @@ import org.junit.Test;
 public class TaskTest {
 
   @Test
-  public void test() {
-    ProjectList projectList = ProjectList.getInstance();
-    projectList.addProject("testProject");
+  public void testAddTask() {
+
+    Project project = ProjectList.getInstance().getProjectList().get(0);
+    project.addTask("TestTask", "", 0,
+        new Log(LocalDate.now(), SystemFACADE.currentUser, LogEnum.TODO), 0,
+        UUID.randomUUID(), 0, "new feature");
+
     DataWriter.saveProjects();
 
-    ArrayList<Project> projects = projectList.getProjectList();
-    Project testProject = projects.get(projects.size() - 1);
-    String name = testProject.getName();
+    DataLoader.getProjects();
 
-    assertEquals("testProject", name);
+    project = ProjectList.getInstance().getProjectList().get(0);
+    String name = project.getTasks().get(project.getTasks().size() - 1).getName();
+
+    assertEquals("TestTask", name);
   }
 
 }

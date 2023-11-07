@@ -17,6 +17,8 @@ public class ProjectListTest {
         projectList.addProject("testProject");
         DataWriter.saveProjects();
 
+        DataLoader.getProjects();
+
         ArrayList<Project> projects = projectList.getProjectList();
         Project testProject = projects.get(projects.size() - 1);
         String name = testProject.getName();
@@ -36,6 +38,8 @@ public class ProjectListTest {
         projectList.removeProject("testProject");
         DataWriter.saveProjects();
 
+        DataLoader.getProjects();
+
         ArrayList<Project> projects = projectList.getProjectList();
         Project testProject = projects.get(projects.size() - 1);
         String name = testProject.getName();
@@ -51,6 +55,8 @@ public class ProjectListTest {
 
         projectList.removeProject("none");
         DataWriter.saveProjects();
+
+        DataLoader.getProjects();
 
         ArrayList<Project> projects = projectList.getProjectList();
         Project testProject = projects.get(projects.size() - 1);
