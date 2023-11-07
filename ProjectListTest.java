@@ -26,7 +26,13 @@ public class ProjectListTest {
 
     @Test
     public void testRemoveProjectValid() {
-        ProjectList projectList  = ProjectList.getInstance();
+        ProjectList projectList = ProjectList.getInstance();
+        projectList.addProject("Air Computers");
+        DataWriter.saveProjects();
+
+        projectList.addProject("testProject");
+        DataWriter.saveProjects();
+
         projectList.removeProject("testProject");
         DataWriter.saveProjects();
 
@@ -39,7 +45,10 @@ public class ProjectListTest {
 
     @Test
     public void testRemoveProjectInvalid() {
-        ProjectList projectList  = ProjectList.getInstance();
+        ProjectList projectList = ProjectList.getInstance();
+        projectList.addProject("testProject");
+        DataWriter.saveProjects();
+
         projectList.removeProject("none");
         DataWriter.saveProjects();
 
