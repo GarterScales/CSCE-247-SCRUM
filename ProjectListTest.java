@@ -9,27 +9,12 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.Test;
 
-
-
 public class ProjectListTest {
 
     @Test
     public void testAddProject() {
         ProjectList projectList = ProjectList.getInstance();
         projectList.addProject("testProject");
-        DataWriter.saveProjects();
-
-        ArrayList<Project> projects = projectList.getProjectList();
-        Project testProject = projects.get(projects.size() - 1);
-        String name = testProject.getName();
-
-        assertEquals("testProject", name);
-    }
-
-    @Test
-    public void testRemoveProjectInvalid() {
-        ProjectList projectList  = ProjectList.getInstance();
-        projectList.removeProject("none");
         DataWriter.saveProjects();
 
         ArrayList<Project> projects = projectList.getProjectList();
@@ -50,6 +35,19 @@ public class ProjectListTest {
         String name = testProject.getName();
 
         assertEquals("Air Computers", name);
+    }
+
+    @Test
+    public void testRemoveProjectInvalid() {
+        ProjectList projectList  = ProjectList.getInstance();
+        projectList.removeProject("none");
+        DataWriter.saveProjects();
+
+        ArrayList<Project> projects = projectList.getProjectList();
+        Project testProject = projects.get(projects.size() - 1);
+        String name = testProject.getName();
+
+        assertEquals("testProject", name);
     }
 
     @Test
