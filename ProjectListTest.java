@@ -25,21 +25,14 @@ public class ProjectListTest {
     }
 
     @Test
-    public void testRemoveProjectInvalid() {
-        ProjectList projectList  = ProjectList.getInstance();
-        projectList.removeProject("none");
+    public void testRemoveProjectValid() {
+        ProjectList projectList = ProjectList.getInstance();
+        projectList.addProject("Air Computers");
         DataWriter.saveProjects();
 
-        ArrayList<Project> projects = projectList.getProjectList();
-        Project testProject = projects.get(projects.size() - 1);
-        String name = testProject.getName();
+        projectList.addProject("testProject");
+        DataWriter.saveProjects();
 
-        assertEquals("testProject", name);
-    }
-
-    @Test
-    public void testRemoveProjectValid() {
-        ProjectList projectList  = ProjectList.getInstance();
         projectList.removeProject("testProject");
         DataWriter.saveProjects();
 
@@ -48,6 +41,22 @@ public class ProjectListTest {
         String name = testProject.getName();
 
         assertEquals("Air Computers", name);
+    }
+
+    @Test
+    public void testRemoveProjectInvalid() {
+        ProjectList projectList = ProjectList.getInstance();
+        projectList.addProject("testProject");
+        DataWriter.saveProjects();
+
+        projectList.removeProject("none");
+        DataWriter.saveProjects();
+
+        ArrayList<Project> projects = projectList.getProjectList();
+        Project testProject = projects.get(projects.size() - 1);
+        String name = testProject.getName();
+
+        assertEquals("testProject", name);
     }
 
     @Test
