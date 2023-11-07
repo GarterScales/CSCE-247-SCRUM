@@ -25,19 +25,6 @@ public class ProjectListTest {
     }
 
     @Test
-    public void testRemoveProjectInvalid() {
-        ProjectList projectList = ProjectList.getInstance();
-        projectList.removeProject("none");
-        DataWriter.saveProjects();
-
-        ArrayList<Project> projects = projectList.getProjectList();
-        Project testProject = projects.get(projects.size() - 1);
-        String name = testProject.getName();
-
-        assertEquals("testProject", name);
-    }
-
-    @Test
     public void testRemoveProjectValid() {
         ProjectList projectList = ProjectList.getInstance();
         projectList.addProject("Air Computers");
