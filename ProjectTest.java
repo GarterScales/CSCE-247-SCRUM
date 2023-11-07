@@ -30,10 +30,14 @@ public class ProjectTest {
         Project project = projects.get(0);
         UUID id = UUID.randomUUID();
 
-        String name = project.getTaskbyId(id).getName();
+        String name = null;
 
-        assertEquals(null, name);
+        if(project.getTaskbyId(id) == null) {
+            name = "nothing";
+        }
+
+        assertEquals("nothing", name);
     }
 
-    
+
 }
