@@ -38,11 +38,13 @@ public class TaskTest {
     UUID testID = project.addTask("TestTask", "", 0, 0,
         UUID.randomUUID(), 0, "new feature");
 
+    project.removeTask(testID);
+
     DataWriter.saveProjects();
 
     DataLoader.getProjects();
 
-    project = ProjectList.getInstance().selectProject(testID);
+    project = ProjectList.getInstance().getProjectList().get(0);
     String name = project.getTasks().get(project.getTasks().size() - 1).getName();
 
     assertEquals("SuccessTask", name);

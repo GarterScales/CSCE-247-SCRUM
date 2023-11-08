@@ -53,7 +53,7 @@ public class ProjectListTest {
         UUID testID = projectList.addProject("testProject");
         DataWriter.saveProjects();
 
-        projectList.removeProject(testID);
+        projectList.removeProject(UUID.randomUUID());
         DataWriter.saveProjects();
 
         DataLoader.getProjects();
