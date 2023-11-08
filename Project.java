@@ -130,6 +130,15 @@ public class Project {
     }
 
     /**
+     * A method that removes a comment
+     * 
+     * @param comment
+     */
+    public void removeComment(Comment comment) {
+        comments.remove(comment);
+    }
+
+    /**
      * A method that displays comments
      */
     public void displayComments() {

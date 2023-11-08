@@ -83,8 +83,22 @@ public abstract class Task {
     this.inSprint = !this.inSprint;
   }
 
+  /**
+   * A method that adds a comment
+   * 
+   * @param comment
+   */
   public void addComment(Comment comment) {
     this.comments.add(comment);
+  }
+
+  /**
+     * A method that removes a comment
+     * 
+     * @param comment
+     */
+    public void removeComment(Comment comment) {
+      comments.remove(comment);
   }
 
   /**
