@@ -50,7 +50,7 @@ public class CommentTest {
 
         String reply = replies.get(replies.size() - 1).getContent();
 
-        assertEquals("testreply", reply);
+        assertEquals("testReply", reply);
     }
 
     // @Test

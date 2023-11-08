@@ -44,6 +44,9 @@ public class UserList {
         boolean hasNumber = false;
         boolean hasCapital = false;
         boolean hasLowerCase = false;
+        if (password == null) {
+            return false;
+        }
         for (int i = 0; i < password.length(); i++) {
             ch = password.charAt(i);
             if (Character.isDigit(ch)) {
