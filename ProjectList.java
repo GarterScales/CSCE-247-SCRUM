@@ -55,9 +55,11 @@ public class ProjectList {
      * 
      * @param name
      */
-    public void addProject(String name) {
-        projectList.add(new Project(name));
+    public UUID addProject(String name) {
+        Project newProject = new Project(name);
+        projectList.add(newProject);
         DataWriter.saveProjects();
+        return newProject.getId();
     }
 
     /**
@@ -65,11 +67,12 @@ public class ProjectList {
      * 
      * @param name
      */
-    public void removeProject(String name) {
+    public void removeProject(UUID id) {
         for (int i = 0; i < projectList.size(); i++) {
-            if (projectList.get(i).getName().equals(name)) {
+            if (projectList.get(i).getId().equals(id)) {
                 projectList.remove(i);
                 DataWriter.saveProjects();
+                return;
             }
         }
     }
@@ -100,6 +103,17 @@ public class ProjectList {
         for (Project project : projectList) {
             if (id.equals(project.getId())) {
                 return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean checkIDAvailabilityTask(UUID id) {
+        for (Project project : projectList) {
+            for (Task task : project.getTasks()) {
+                if (id.equals(task.getId())) {
+                    return false;
+                }
             }
         }
         return true;

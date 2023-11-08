@@ -7,7 +7,6 @@ public abstract class Task {
   private int priority;
   private Log log;
   private int hoursToComplete;
-  private User user;
   private ArrayList<Comment> comments;
   private UUID id;
   private UUID userId;
@@ -57,16 +56,16 @@ public abstract class Task {
    * @param userID
    * @param pointValue
    */
-  public Task(String name, String content, int priority, Log log, int hoursToComplete, UUID userID, int pointValue) {
+  public Task(String name, String content, int priority, int hoursToComplete, UUID userID, int pointValue) {
     genUUID();
     setName(name);
     setTaskContent(content);
     setHoursToComplete(hoursToComplete);
-    setLog(log);
     setUserId(userID);
     setPriority(priority);
     setPointValue(pointValue);
     this.comments = new ArrayList<Comment>();
+    this.log = new Log();
   }
 
   /**
@@ -247,7 +246,7 @@ public abstract class Task {
     UUID tempID = UUID.randomUUID();
     boolean x = true;
     while (x) {
-      if (ProjectList.getInstance().checkIDAvailability(tempID)) {
+      if (ProjectList.getInstance().checkIDAvailabilityTask(tempID)) {
         this.id = tempID;
         x = false;
       } else {

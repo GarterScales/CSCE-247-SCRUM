@@ -36,9 +36,7 @@ public class DataConstants {
   protected static final String TASK_TYPE = "type";
   protected static final String LOG = "log";
   protected static final String LOG_DATE = "date";
-  protected static final String LOG_USER_ID = "userID";
   protected static final String LOG_ENUM = "logType";
-  protected static final String LOG_REASON = "reason";
   protected static final String HOURS = "hoursToComplete";
   protected static final String TASK_USER_ID = "userID";
   protected static final String POINT_VALUE = "pointValue";

@@ -30,24 +30,6 @@ public class BugTask extends Task {
     /**
      * A method that creates a bugtask object with different parameters
      * 
-     * @param id
-     * @param name
-     * @param content
-     * @param priority
-     * @param log
-     * @param hoursToComplete
-     * @param userID
-     * @param comments
-     * @param pointValue
-     */
-    public BugTask(UUID id, String name, String content, int priority, Log log, int hoursToComplete, UUID userID,
-            ArrayList<Comment> comments, int pointValue) {
-        super(id, name, content, priority, log, hoursToComplete, userID, comments, pointValue);
-    }
-
-    /**
-     * A method that creates a bugtask object with different parameters
-     * 
      * @param name
      * @param content
      * @param priority
@@ -56,9 +38,9 @@ public class BugTask extends Task {
      * @param userID
      * @param pointValue
      */
-    public BugTask(String name, String content, int priority, Log log, int hoursToComplete, UUID userID,
+    public BugTask(String name, String content, int priority, int hoursToComplete, UUID userID,
             int pointValue) {
-        super(name, content, priority, log, hoursToComplete, userID, pointValue);
+        super(name, content, priority, hoursToComplete, userID, pointValue);
 
     }
 

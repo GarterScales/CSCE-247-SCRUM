@@ -227,9 +227,7 @@ public class DataWriter extends DataConstants {
     public static JSONObject getLogObject(Log log) {
         JSONObject logObject = new JSONObject();
         logObject.put(LOG_DATE, log.getDate().toString());
-        logObject.put(LOG_USER_ID, log.getUser().getId().toString());
         logObject.put(LOG_ENUM, log.getType().toString());
-        logObject.put(LOG_REASON, log.getReason());
         return logObject;
     }
 

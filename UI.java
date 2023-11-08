@@ -78,8 +78,7 @@ public class UI {
         System.out.println(
                 "Adding a new task \"Initialize super algorithm to detonate at warp speed\". Assigning to Jeff Goldblum");
 
-        SystemFACADE.currentProject.addTask("Initialize super algorithm to detonate at warp speed", "", 0,
-                new Log(LocalDate.now(), SystemFACADE.currentUser, LogEnum.TODO), 0,
+        SystemFACADE.currentProject.addTask("Initialize super algorithm to detonate at warp speed", "", 0, 0,
                 jeffID, 0, "new feature");
 
         System.out.println("Adding Comment to super algorithm Task");
@@ -126,60 +125,60 @@ public class UI {
         }
     }
 
-    public void run2() {
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Would you like to view your projects?");
-        System.out.println("1. Yes 2. No");
-        int projectChoice = keyboard.nextInt();
-        keyboard.nextLine();
+    // public void run2() {
+    // Scanner keyboard = new Scanner(System.in);
+    // System.out.println("Would you like to view your projects?");
+    // System.out.println("1. Yes 2. No");
+    // int projectChoice = keyboard.nextInt();
+    // keyboard.nextLine();
 
-        if (projectChoice == 1) {
-            // list projects
-            ProjectList projectList = ProjectList.getInstance();
-            ArrayList<Project> projects = projectList.getProjectList();
+    // if (projectChoice == 1) {
+    // // list projects
+    // ProjectList projectList = ProjectList.getInstance();
+    // ArrayList<Project> projects = projectList.getProjectList();
 
-            for (int i = 0; i < projects.size(); i++) {
-                Project project = projects.get(i);
-                System.out.println((i + 1) + " " + project.getName());
-            }
+    // for (int i = 0; i < projects.size(); i++) {
+    // Project project = projects.get(i);
+    // System.out.println((i + 1) + " " + project.getName());
+    // }
 
-            // add and/or remove projects
-            System.out.println("Would you like to 1. add or 2. remove");
-            int addRemove = keyboard.nextInt();
-            keyboard.nextLine();
-            if (addRemove == 1) {
-                // add project
-                System.out.println("Enter the name of the project you would like to add");
-                String addName = keyboard.nextLine();
-                projectList.addProject(addName);
-            } else if (addRemove == 2) {
-                // remove project
-                System.out.println("Enter the name of the project you would like to remove");
-                String removeName = keyboard.nextLine();
-                projectList.removeProject(removeName);
-            } else {
-                System.out.println("Please enter a valid choice");
-            }
+    // // add and/or remove projects
+    // System.out.println("Would you like to 1. add or 2. remove");
+    // int addRemove = keyboard.nextInt();
+    // keyboard.nextLine();
+    // if (addRemove == 1) {
+    // // add project
+    // System.out.println("Enter the name of the project you would like to add");
+    // String addName = keyboard.nextLine();
+    // projectList.addProject(addName);
+    // } else if (addRemove == 2) {
+    // // remove project
+    // System.out.println("Enter the name of the project you would like to remove");
+    // String removeName = keyboard.nextLine();
+    // projectList.removeProject(removeName);
+    // } else {
+    // System.out.println("Please enter a valid choice");
+    // }
 
-            System.out.println("Which project would you like to view?");
-            int projectView = keyboard.nextInt();
-            keyboard.nextLine();
+    // System.out.println("Which project would you like to view?");
+    // int projectView = keyboard.nextInt();
+    // keyboard.nextLine();
 
-            if (projectView > 0 && projectView <= projects.size()) {
-                // user views selected project
-                SystemFACADE.currentProject = projects.get(projectView - 1);
-                System.out.println(SystemFACADE.currentProject.toString());
+    // if (projectView > 0 && projectView <= projects.size()) {
+    // // user views selected project
+    // SystemFACADE.currentProject = projects.get(projectView - 1);
+    // System.out.println(SystemFACADE.currentProject.toString());
 
-            } else {
-                System.out.println("Please enter a valid choice");
-            }
-        } else if (projectChoice == 2) {
-            System.out.println("Goodbye");
-        } else {
-            System.out.println("Please enter a valid choice");
-        }
-        keyboard.close();
-    }
+    // } else {
+    // System.out.println("Please enter a valid choice");
+    // }
+    // } else if (projectChoice == 2) {
+    // System.out.println("Goodbye");
+    // } else {
+    // System.out.println("Please enter a valid choice");
+    // }
+    // keyboard.close();
+    // }
 
     public void scenario() {
 

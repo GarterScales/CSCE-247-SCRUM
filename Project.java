@@ -71,28 +71,34 @@ public class Project {
      * @param pointValue
      * @param type
      */
-    public void addTask(String name, String content, int priority, Log log, int hoursToComplete, UUID userID,
+    public UUID addTask(String name, String content, int priority, int hoursToComplete, UUID userID,
             int pointValue, String type) {
+
         switch (type) {
             case "design":
-                // need new overloaded constructor for all 4
-                taskList.add(new DesignTask(name, content, priority, log, hoursToComplete, userID, pointValue));
-                break;
+                DesignTask task = new DesignTask(name, content, priority, hoursToComplete, userID, pointValue);
+                taskList.add(task);
+                return task.getID();
 
             case "documentation":
-                taskList.add(new DocumentationTask(name, content, priority, log, hoursToComplete, userID, pointValue));
-                break;
+                DocumentationTask task2 = new DocumentationTask(name, content, priority, hoursToComplete, userID,
+                        pointValue);
+                taskList.add(task2);
+                return task2.getID();
 
             case "bug":
-                taskList.add(new BugTask(name, content, priority, log, hoursToComplete, userID, pointValue));
-                break;
+                BugTask task3 = new BugTask(name, content, priority, hoursToComplete, userID, pointValue);
+                taskList.add(task3);
+                return task3.getID();
 
             case "new feature":
-                taskList.add(new NewFeatureTask(name, content, priority, log, hoursToComplete, userID, pointValue));
-                break;
+                NewFeatureTask task4 = new NewFeatureTask(name, content, priority, hoursToComplete, userID,
+                        pointValue);
+                taskList.add(task4);
+                return task4.getID();
 
             default:
-                break;
+                return null;
         }
     }
 
@@ -105,7 +111,7 @@ public class Project {
         for (int i = 0; i < taskList.size(); i++) {
             if (taskList.get(i).getID().equals(taskID)) {
                 taskList.remove(i);
-                System.out.println("tst");
+                return;
             }
         }
     }

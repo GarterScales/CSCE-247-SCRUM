@@ -125,7 +125,8 @@ public class Comment {
      * Tostring method for comment
      */
     public String toString() {
-        String returnString = "\nComment:" + "\n\tCommenter: " + this.commenter.getUserName() + "\n\tComment Content: " +
+        String returnString = "\nComment:" + "\n\tCommenter: " + this.commenter.getUserName() + "\n\tComment Content: "
+                +
                 this.content + "\n\tDate: " + this.date;
 
         if (!replies.isEmpty()) {

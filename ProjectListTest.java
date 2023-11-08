@@ -32,10 +32,10 @@ public class ProjectListTest {
         projectList.addProject("Air Computers");
         DataWriter.saveProjects();
 
-        projectList.addProject("testProject");
+        UUID testID = projectList.addProject("testProject");
         DataWriter.saveProjects();
 
-        projectList.removeProject("testProject");
+        projectList.removeProject(testID);
         DataWriter.saveProjects();
 
         DataLoader.getProjects();
@@ -50,10 +50,10 @@ public class ProjectListTest {
     @Test
     public void testRemoveProjectInvalid() {
         ProjectList projectList = ProjectList.getInstance();
-        projectList.addProject("testProject");
+        UUID testID = projectList.addProject("testProject");
         DataWriter.saveProjects();
 
-        projectList.removeProject("none");
+        projectList.removeProject(testID);
         DataWriter.saveProjects();
 
         DataLoader.getProjects();

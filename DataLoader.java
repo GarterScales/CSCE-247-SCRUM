@@ -56,12 +56,10 @@ public class DataLoader extends DataConstants {
 					String intention = (String) taskJSON.get(INTENTION);
 
 					JSONObject logObject = (JSONObject) taskJSON.get(LOG);
-					UUID logUserUUID = UUID.fromString((String) logObject.get(LOG_USER_ID));
 					LogEnum logEnum = LogEnum.valueOf((String) logObject.get(LOG_ENUM));
 					LocalDate logDate = LocalDate.parse((String) logObject.get(LOG_DATE));
-					String logReason = (String) logObject.get(LOG_REASON);
 
-					Log log = new Log(logDate, userList.getUserbyId(logUserUUID), logEnum, logReason);
+					Log log = new Log(logDate, logEnum);
 
 					JSONArray commentsJSON = (JSONArray) taskJSON.get(COMMENTS);
 					ArrayList<Comment> comments = new ArrayList<>();

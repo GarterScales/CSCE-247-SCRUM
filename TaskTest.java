@@ -16,9 +16,7 @@ public class TaskTest {
   public void testAddTask() {
 
     Project project = ProjectList.getInstance().getProjectList().get(0);
-    project.addTask("TestTask", "", 0,
-        new Log(LocalDate.now(), SystemFACADE.currentUser, LogEnum.TODO), 0,
-        UUID.randomUUID(), 0, "new feature");
+    project.addTask("TestTask", "", 0, 0, UUID.randomUUID(), 0, "new feature");
 
     DataWriter.saveProjects();
 
@@ -28,6 +26,26 @@ public class TaskTest {
     String name = project.getTasks().get(project.getTasks().size() - 1).getName();
 
     assertEquals("TestTask", name);
+  }
+
+  @Test
+  public void testRemoveTask() {
+
+    Project project = ProjectList.getInstance().getProjectList().get(0);
+    project.addTask("SuccessTask", "", 0, 0,
+        UUID.randomUUID(), 0, "new feature");
+
+    UUID testID = project.addTask("TestTask", "", 0, 0,
+        UUID.randomUUID(), 0, "new feature");
+
+    DataWriter.saveProjects();
+
+    DataLoader.getProjects();
+
+    project = ProjectList.getInstance().selectProject(testID);
+    String name = project.getTasks().get(project.getTasks().size() - 1).getName();
+
+    assertEquals("SuccessTask", name);
   }
 
 }

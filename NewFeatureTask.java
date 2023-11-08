@@ -31,24 +31,6 @@ public class NewFeatureTask extends Task {
     }
 
     /**
-     * Constructor for creating New Feature Task without additional attributes
-     * 
-     * @param id              Identifier for the task
-     * @param name            Name of the task
-     * @param content         Content of the task
-     * @param priority        Priority level of the task
-     * @param log             Task's log
-     * @param hoursToComplete Hours required to complete the task
-     * @param userID          Identifier of the user assigned to the task
-     * @param comments        List of comments associated with the task
-     * @param pointValue      Point value of the task
-     */
-    public NewFeatureTask(UUID id, String name, String content, int priority, Log log, int hoursToComplete, UUID userID,
-            ArrayList<Comment> comments, int pointValue) {
-        super(id, name, content, priority, log, hoursToComplete, userID, comments, pointValue);
-    }
-
-    /**
      * Constructor for creating New Feature Task wihtout additonal attributes and
      * specifying default values
      * 
@@ -60,9 +42,9 @@ public class NewFeatureTask extends Task {
      * @param userID          Identifier of the user assigned to the task
      * @param pointValue      Point value of the task
      */
-    public NewFeatureTask(String name, String content, int priority, Log log, int hoursToComplete, UUID userID,
+    public NewFeatureTask(String name, String content, int priority, int hoursToComplete, UUID userID,
             int pointValue) {
-        super(name, content, priority, log, hoursToComplete, userID, pointValue);
+        super(name, content, priority, hoursToComplete, userID, pointValue);
     }
 
     /**

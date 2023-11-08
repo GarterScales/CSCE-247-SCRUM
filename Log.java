@@ -2,9 +2,7 @@ import java.time.LocalDate;
 
 public class Log {
     LocalDate date;
-    User user;
     LogEnum logEnum;
-    String reason;
 
     /**
      * A method that creates a log object
@@ -14,11 +12,9 @@ public class Log {
      * @param logEnum
      * @param reason
      */
-    public Log(LocalDate date, User user, LogEnum logEnum, String reason) {
+    public Log(LocalDate date, LogEnum logEnum) {
         this.date = date;
-        this.user = user;
         this.logEnum = logEnum;
-        this.reason = reason;
     }
 
     /**
@@ -28,10 +24,9 @@ public class Log {
      * @param user
      * @param logEnum
      */
-    public Log(LocalDate date, User user, LogEnum logEnum) {
-        this.date = date;
-        this.user = user;
-        this.logEnum = logEnum;
+    public Log() {
+        this.date = LocalDate.now();
+        this.logEnum = LogEnum.BACKLOG;
     }
 
     /**
@@ -44,30 +39,12 @@ public class Log {
     }
 
     /**
-     * Getter for user
-     * 
-     * @return
-     */
-    public User getUser() {
-        return this.user;
-    }
-
-    /**
      * Getter for type
      * 
      * @return
      */
     public LogEnum getType() {
         return this.logEnum;
-    }
-
-    /**
-     * Getter for reason
-     * 
-     * @return
-     */
-    public String getReason() {
-        return this.reason;
     }
 
     /**
@@ -95,7 +72,6 @@ public class Log {
 
         }
         this.date = date;
-        this.user = user;
     }
 
     /**
@@ -124,15 +100,12 @@ public class Log {
 
         }
         this.date = date;
-        this.user = user;
-        this.reason = reason;
     }
 
     /**
      * A tostring method for log
      */
     public String toString() {
-        return "\nDate: " + this.date + "\nUser: " + this.user.toString() + "\nLog Type: " + this.logEnum
-                + (this.reason != null ? "" : "\nReason" + this.reason);
+        return "\nDate: " + this.date + "\nLog Type: " + this.logEnum;
     }
 }
