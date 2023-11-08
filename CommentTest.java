@@ -14,7 +14,7 @@ public class CommentTest {
     @Test
     public void testAddCommentProject() {
         Project project = ProjectList.getInstance().getProjectList().get(0);
-        User user = SystemFACADE.currentUser;
+        User user = UserList.getInstance().getUsers().get(0);
         String content = "testCommentProject";
         LocalDate date = LocalDate.now();
         project.addComment(new Comment(user, content, date, new ArrayList<Comment>()));
@@ -28,7 +28,7 @@ public class CommentTest {
     @Test
     public void testAddCommentTask() {
         Task task = ProjectList.getInstance().getProjectList().get(0).getTasks().get(0);
-        User user = SystemFACADE.currentUser;
+        User user = UserList.getInstance().getUsers().get(0);
         String content = "testCommentTask";
         LocalDate date = LocalDate.now();
         task.addComment(new Comment(user, content, date, new ArrayList<Comment>()));
@@ -42,7 +42,7 @@ public class CommentTest {
     @Test
     public void testAddReply() {
         Comment comment = ProjectList.getInstance().getProjectList().get(0).getTasks().get(0).getComments().get(0);
-        User user = SystemFACADE.currentUser;
+        User user = UserList.getInstance().getUsers().get(0);
         String content = "testReply";
         LocalDate date = LocalDate.now();
         comment.addReply(new Comment(user, content, date, new ArrayList<Comment>()));
@@ -50,7 +50,7 @@ public class CommentTest {
 
         String reply = replies.get(replies.size() - 1).getContent();
 
-        assertEquals("testreply", reply);
+        assertEquals("testReply", reply);
     }
 
     // @Test
