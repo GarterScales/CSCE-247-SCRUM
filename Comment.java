@@ -27,7 +27,7 @@ public class Comment {
      * 
      * @param comment
      */
-    public void removeComment(Comment comment) {
+    public void removeReply(Comment comment) {
         replies.remove(comment);
     }
 
